@@ -4,6 +4,6 @@ export const routes = {
   products: "/products",
   contact: "/contact",
   cart: "/cart",
-  single_product: "/products:/title",
+  single_product: "/products/:title",
 };
 // tworzony w celu unikniecia stringow

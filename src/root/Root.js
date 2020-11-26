@@ -22,14 +22,29 @@ const Root = () => {
       ({ productId }) => productId === productIdx
     );
 
-    setCart([...cart, { ...newProduct }]);
+    setCart([...new Set([...cart, newProduct])]);
     console.log(newProduct);
   };
 
   const removeProductFromCart = (productId) => {
-    const filteredProduct = cart.filter((el) => productId !== el.productId);
+    const filteredProduct = cart.filter((product) => {
+      if (product.productId === productId) {
+        product.productQuantity = 1;
+      }
+      return productId !== product.productId;
+    });
 
     setCart([...filteredProduct]);
+  };
+
+  const checkIfProductIsInTheCart = (id) => {
+    const mappedCart = cart.map((product) => {
+      if (product.productId === id) {
+        product.productQuantity += 1;
+      }
+      return product;
+    });
+    setCart([...mappedCart]);
   };
 
   return (
@@ -40,6 +55,7 @@ const Root = () => {
           products,
           cart,
           removeProductFromCart,
+          checkIfProductIsInTheCart,
         }}
       >
         <MainTemplate>
@@ -47,7 +63,7 @@ const Root = () => {
             <Route exact path={routes.home} component={Home} />
             <Route path={routes.about} component={About} />
             <Route path={routes.contact} component={Contact} />
-            <Route path={routes.products} component={Products} />
+            <Route exactpath={routes.products} component={Products} />
             <Route path={routes.cart} component={Cart} />
             <Route path={routes.single_product} component={SingleProduct} />
           </Switch>

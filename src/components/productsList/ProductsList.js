@@ -6,7 +6,7 @@ import "./ProductList.css";
 
 const ProductsList = () => {
   const value = useContext(ShopContext);
-  const { products, addProductToCart } = value;
+  const { products, addProductToCart, checkIfProductIsInTheCart } = value;
 
   return (
     <>
@@ -23,7 +23,7 @@ const ProductsList = () => {
 
                 <Link
                   to={{
-                    pathname: `/products:/title`,
+                    pathname: `/products/${productName}`,
                     //Nie mylić ze stanem aplikacji/klasowym, TO JEST STAN LINKU ---> czyli to co link ze sobą przywiezie
                     state: {
                       productId: productId,
@@ -40,6 +40,7 @@ const ProductsList = () => {
                 <p> {productPrice} zł</p>
                 <Button
                   onClick={() => {
+                    checkIfProductIsInTheCart(productId);
                     addProductToCart(productId);
                   }}
                   variant="contained"

@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "20px",
     outline: "none",
     height: "85vh",
-    width: "30vw",
+    width: "34vw",
+    overflowY: "auto",
   },
   root: {
     "& > *": {
@@ -95,10 +96,32 @@ const Cart = () => {
             <h2>Your cart</h2>
             <ul>
               {cart.map((product) => {
-                const { productName } = product;
+                const {
+                  productName,
+                  productImage,
+                  productId,
+                  productQuantity,
+                  productPrice,
+                } = product;
                 return (
-                  <li>
+                  <li key={productId}>
+                    <img
+                      src={productImage}
+                      alt={productName}
+                      style={{ width: "50px", height: "50px" }}
+                    />
                     <p>{productName}</p>
+                    <button>-</button>
+                    <p>{productQuantity}</p>
+                    <button>+</button>
+                    <p>{productPrice}$</p>
+                    <button
+                      onClick={() => {
+                        value.removeProductFromCart(productId);
+                      }}
+                    >
+                      x
+                    </button>
                   </li>
                 );
               })}
