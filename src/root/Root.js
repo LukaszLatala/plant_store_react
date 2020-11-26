@@ -47,6 +47,27 @@ const Root = () => {
     setCart([...mappedCart]);
   };
 
+  const increaseQuantityofProductInCart = (id) => {
+    const mappedCart = cart.map((product) => {
+      if (product.productId === id) {
+        product.productQuantity += 1;
+      }
+      return product;
+    });
+    setCart([...mappedCart]);
+  };
+
+  const decreaseQuantityofProductInCart = (id) => {
+    const mappedCart = cart.map((product) => {
+      if (product.productId === id) {
+        product.productQuantity -= 1;
+      }
+
+      return product;
+    });
+    setCart([...mappedCart]);
+  };
+
   return (
     <BrowserRouter>
       <ShopContext.Provider
@@ -56,6 +77,8 @@ const Root = () => {
           cart,
           removeProductFromCart,
           checkIfProductIsInTheCart,
+          increaseQuantityofProductInCart,
+          decreaseQuantityofProductInCart,
         }}
       >
         <MainTemplate>
@@ -63,7 +86,7 @@ const Root = () => {
             <Route exact path={routes.home} component={Home} />
             <Route path={routes.about} component={About} />
             <Route path={routes.contact} component={Contact} />
-            <Route exactpath={routes.products} component={Products} />
+            <Route exact path={routes.products} component={Products} />
             <Route path={routes.cart} component={Cart} />
             <Route path={routes.single_product} component={SingleProduct} />
           </Switch>

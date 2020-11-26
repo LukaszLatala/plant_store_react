@@ -7,6 +7,8 @@ import ShopContext from "../../context/context";
 // import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 
+import "./Cart.css";
+
 // import { IconButton } from "@material-ui/core";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 const useStyles = makeStyles((theme) => ({
@@ -55,12 +57,8 @@ const Cart = () => {
   const { cart } = value;
 
   return (
-    <div>
-      {/* <button type="button" onClick={handleOpen}>
-        Your Cart
-      </button> */}
-
-      <div className={classes.root}>
+    <div className={classes.root}>
+      <div>
         <IconButton
           onClick={handleOpen}
           color="s"
@@ -69,16 +67,7 @@ const Cart = () => {
           <AddShoppingCartIcon />
         </IconButton>
       </div>
-      {/* <Button variant="contained">Default</Button> */}
-      {/* <Button
-        type="button"
-        onClick={handleOpen}
-        variant="contained"
-        color="secondary"
-      >
-        {" "}
-        Your Cart
-      </Button> */}
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -94,7 +83,8 @@ const Cart = () => {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2>Your cart</h2>
-            <ul>
+
+            <ul style={{ padding: "0" }}>
               {cart.map((product) => {
                 const {
                   productName,
@@ -104,25 +94,55 @@ const Cart = () => {
                   productPrice,
                 } = product;
                 return (
-                  <li key={productId}>
-                    <img
-                      src={productImage}
-                      alt={productName}
-                      style={{ width: "50px", height: "50px" }}
-                    />
-                    <p>{productName}</p>
-                    <button>-</button>
-                    <p>{productQuantity}</p>
-                    <button>+</button>
-                    <p>{productPrice}$</p>
-                    <button
-                      onClick={() => {
-                        value.removeProductFromCart(productId);
-                      }}
-                    >
-                      x
-                    </button>
-                  </li>
+                  <div className="flexbox">
+                    <li key={productId}>
+                      <div className="cart_container">
+                        <img
+                          src={productImage}
+                          alt={productName}
+                          style={{ width: "100px", height: "100px" }}
+                        />
+                        <p>{productName}</p>
+                        <button
+                          className="btn_decrease"
+                          disabled={productQuantity === 0 ? true : false}
+                          onClick={() => {
+                            value.decreaseQuantityofProductInCart(productId);
+                          }}
+                        >
+                          -
+                        </button>
+                        <p
+                          style={
+                            productQuantity === 0
+                              ? {
+                                  opacity: 0.3,
+                                }
+                              : null
+                          }
+                        >
+                          {productQuantity}{" "}
+                        </p>
+                        <button
+                          className="btn_increase"
+                          onClick={() => {
+                            value.increaseQuantityofProductInCart(productId);
+                          }}
+                        >
+                          +
+                        </button>
+                        <p> Cena: {productPrice}</p>
+                        <button
+                          className="btn_remove"
+                          onClick={() => {
+                            value.removeProductFromCart(productId);
+                          }}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </li>
+                  </div>
                 );
               })}
             </ul>
