@@ -26,16 +26,16 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "20px",
     outline: "none",
     height: "85vh",
-    width: "34vw",
+    width: "50vw",
     overflowY: "auto",
   },
   root: {
     "& > *": {
       margin: theme.spacing(1),
       color: "red",
-      position: "absolute",
-      right: "10px",
-      top: "10px",
+      // position: "absolute",
+      // right: "10px",
+      // top: "10px",
     },
   },
 }));
@@ -82,7 +82,9 @@ const Cart = () => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2>Your cart</h2>
+            <div className="title">
+              <h2>Your cart</h2>
+            </div>
 
             <ul style={{ padding: "0" }}>
               {cart.map((product) => {
@@ -94,44 +96,58 @@ const Cart = () => {
                   productPrice,
                 } = product;
                 return (
-                  <div className="flexbox">
-                    <li key={productId}>
-                      <div className="cart_container">
+                  <div>
+                    <li className="product_container_cart" key={productId}>
+                      <div className="image">
                         <img
                           src={productImage}
                           alt={productName}
-                          style={{ width: "100px", height: "100px" }}
+                          style={{ width: "120px", height: "120px" }}
                         />
+                      </div>
+                      <div className="name">
                         <p>{productName}</p>
-                        <button
-                          className="btn_decrease"
-                          disabled={productQuantity === 0 ? true : false}
-                          onClick={() => {
-                            value.decreaseQuantityofProductInCart(productId);
-                          }}
-                        >
-                          -
-                        </button>
-                        <p
-                          style={
-                            productQuantity === 0
-                              ? {
-                                  opacity: 0.3,
-                                }
-                              : null
-                          }
-                        >
-                          {productQuantity}{" "}
-                        </p>
-                        <button
-                          className="btn_increase"
-                          onClick={() => {
-                            value.increaseQuantityofProductInCart(productId);
-                          }}
-                        >
-                          +
-                        </button>
-                        <p> Cena: {productPrice}</p>
+                      </div>
+
+                      <button
+                        className="decrease_button"
+                        disabled={productQuantity === 0 ? true : false}
+                        onClick={() => {
+                          value.decreaseQuantityofProductInCart(productId);
+                        }}
+                      >
+                        -
+                      </button>
+                      <p
+                        className="quantity_information"
+                        style={
+                          productQuantity === 0
+                            ? {
+                                opacity: 0.3,
+                              }
+                            : null
+                        }
+                      >
+                        {productQuantity}{" "}
+                      </p>
+                      <button
+                        className="increase_button"
+                        onClick={() => {
+                          value.increaseQuantityofProductInCart(productId);
+                        }}
+                      >
+                        +
+                      </button>
+
+                      <div className="price">
+                        <p> Price: {productPrice}</p>
+                      </div>
+
+                      <div className="buy_btn">
+                        <button className="buy_btn">Buy</button>
+                      </div>
+
+                      <div className="remove_btn">
                         <button
                           className="btn_remove"
                           onClick={() => {

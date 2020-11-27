@@ -1,5 +1,5 @@
 import React from "react";
-import Cart from "../../components/Cart/Cart";
+// import Cart from "../../components/Cart/Cart";
 
 import ProductsList from "../../components/productsList/ProductsList";
 
@@ -8,7 +8,7 @@ const Products = () => {
     <div>
       <h1>Products</h1>
 
-      <Cart />
+      {/* <Cart /> */}
       <ProductsList />
     </div>
   );

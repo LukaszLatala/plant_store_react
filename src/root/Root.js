@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
-import Cart from "../pages/Cart/Cart";
+// import Cart from "../pages/Cart/Cart";
+import Cart from "../components/Cart/Cart";
 import Home from "../pages/Home/Home";
 import Products from "../pages/Products/Products";
 import { routes } from "../routes/routes";
@@ -87,7 +88,7 @@ const Root = () => {
             <Route path={routes.about} component={About} />
             <Route path={routes.contact} component={Contact} />
             <Route exact path={routes.products} component={Products} />
-            <Route path={routes.cart} component={Cart} />
+            <Route exact path={routes.cart} component={Cart} />
             <Route path={routes.single_product} component={SingleProduct} />
           </Switch>
         </MainTemplate>

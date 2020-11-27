@@ -7,8 +7,8 @@ const Home = () => {
     <>
       <div>
         Home
-        <h1>{value.counter}</h1>
-        <button onClick={value.increase}>+</button>
+        {/* <h1>{value.counter}</h1>
+        <button onClick={value.increase}>+</button> */}
       </div>
     </>
   );

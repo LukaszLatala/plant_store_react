@@ -8,9 +8,9 @@ const About = () => {
     <div>
       <h1>About </h1>
 
-      <h2> {value.info} </h2>
+      {/* <h2> {value.info} </h2>
 
-      <button onClick={value.handleInfoChange}>change info</button>
+      <button onClick={value.handleInfoChange}>change info</button> */}
     </div>
   );
 };
