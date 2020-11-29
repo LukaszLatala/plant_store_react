@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "20px",
     outline: "none",
     height: "85vh",
-    width: "50vw",
+    width: "45vw",
     overflowY: "auto",
   },
   root: {
@@ -65,6 +65,7 @@ const Cart = () => {
           aria-label="add to shopping cart"
         >
           <AddShoppingCartIcon />
+          <h8>({value.cart.length}) </h8>
         </IconButton>
       </div>
 

@@ -1,17 +1,14 @@
 import React, { useContext } from "react";
+import Footer from "../../components/Footer/Footer";
 import ShopContext from "../../context/context";
+import "./About.css";
 
 const About = () => {
-  const value = useContext(ShopContext);
-
   return (
-    <div>
-      <h1>About </h1>
-
-      {/* <h2> {value.info} </h2>
-
-      <button onClick={value.handleInfoChange}>change info</button> */}
-    </div>
+    <>
+      <h1> Our Product is our mission </h1>
+      <Footer />
+    </>
   );
 };
 
