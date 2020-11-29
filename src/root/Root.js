@@ -88,7 +88,7 @@ const Root = () => {
             <Route path={routes.about} component={About} />
             <Route path={routes.contact} component={Contact} />
             <Route exact path={routes.products} component={Products} />
-            <Route exact path={routes.cart} component={Cart} />
+            {/* <Route exact path={routes.cart} component={Cart} /> */}
             <Route path={routes.single_product} component={SingleProduct} />
           </Switch>
         </MainTemplate>

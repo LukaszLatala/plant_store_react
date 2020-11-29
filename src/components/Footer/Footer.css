@@ -1,0 +1,18 @@
+
+.container{
+    min-height:100%;
+    position:relative;
+}
+
+footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+
+    /* background:#b5fbbd; */
+  }
+  
+  footer p {
+    text-align:center;
+    color:red;
+  }

@@ -6,8 +6,7 @@
 .product_container_cart{
     display: grid;
    grid-template-columns: 150px 120px 30px  30px  30px  100px 100px 50px;
-   /* grid-column-gap: 150px 20px  20px   20px   20px   20px  20px; */
-    /* grid-template-rows: 150px 20px  20px   20px   20px   20px  20px; */
+
    place-items: center;
    font-size: large;
    color: #5E6977;

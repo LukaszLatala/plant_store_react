@@ -1,0 +1,31 @@
+.return_link{
+    text-decoration: none;
+    color: white;
+
+}
+
+
+.single_product_name{
+text-align: center;
+font-size: 40px;
+margin: 20px;
+}
+.returnb_btn_container{
+    padding: 10px;
+    margin: 10px;
+}
+
+.box{
+    column-count: 2;
+    column-gap: 20px;
+    column-rule:1px solid #D1D1D1;
+    text-align: center;
+}
+
+img{
+    width:400px;
+    height: 400px;
+}
+p{
+    padding: 5px;
+}

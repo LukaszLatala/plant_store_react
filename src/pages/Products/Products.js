@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../components/Footer/Footer";
 // import Cart from "../../components/Cart/Cart";
 
 import ProductsList from "../../components/productsList/ProductsList";
@@ -10,6 +11,7 @@ const Products = () => {
 
       {/* <Cart /> */}
       <ProductsList />
+      {/* <Footer /> */}
     </div>
   );
 };

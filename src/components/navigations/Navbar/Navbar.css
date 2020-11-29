@@ -9,7 +9,9 @@
     color: #eee;
     /* font-size: large; */
     font-weight: 200;
-    font-size: 28px
+    font-size: 28px;
+    height: 15vh;
+    margin-bottom: 20px;
 
 }
 
@@ -20,7 +22,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 28px;
 }
 
 .link:hover{
