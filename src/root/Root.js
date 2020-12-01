@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 // import Cart from "../pages/Cart/Cart";
-import Cart from "../components/Cart/Cart";
+// import Cart from "../components/Cart/Cart";
 import Home from "../pages/Home/Home";
 import Products from "../pages/Products/Products";
 import { routes } from "../routes/routes";
