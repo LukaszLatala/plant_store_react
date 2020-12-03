@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
@@ -17,6 +17,42 @@ const Root = () => {
 
   const [products, setProducts] = useState([...productsData]);
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartTotal, setCartTotal] = useState(0);
+  // const [counter, setCounter] = useState(0);
+
+  // const increaseCounter = () => {
+  //   setCounter(counter + 1);
+  // };
+
+  // componentDidMount ---> czyli wywolanie czegoś RAZ na samym początku w momencie kiedy komponent się montuje/renderuje na stronie
+  // useEffect(() => {
+  //   increaseCounter();
+  // }, []);
+
+  //componentDidUpdate --> czyli wywolanie czegoś ZA KAŻDYM RAZEM kiedy coś innego co monitorujemy się zmieni
+  // useEffect(() => {
+  //   increaseCounter();
+  // }, [cart]);
+
+  useEffect(() => {
+    calculateCartTotal();
+  }, [cart]);
+
+  const calculateCartTotal = () => {
+    let total = 0;
+    cart.forEach((product) => {
+      total += product.productQuantity * product.productPrice;
+    });
+    setCartTotal(total);
+  };
+
+  const handleCartOpen = () => {
+    setIsCartOpen(true);
+  };
+  const handleCartClose = () => {
+    setIsCartOpen(false);
+  };
 
   const addProductToCart = (productIdx) => {
     const newProduct = products.find(
@@ -80,6 +116,10 @@ const Root = () => {
           checkIfProductIsInTheCart,
           increaseQuantityofProductInCart,
           decreaseQuantityofProductInCart,
+          isCartOpen,
+          handleCartClose,
+          handleCartOpen,
+          cartTotal,
         }}
       >
         <MainTemplate>
@@ -88,7 +128,6 @@ const Root = () => {
             <Route path={routes.about} component={About} />
             <Route path={routes.contact} component={Contact} />
             <Route exact path={routes.products} component={Products} />
-            {/* <Route exact path={routes.cart} component={Cart} /> */}
             <Route path={routes.single_product} component={SingleProduct} />
           </Switch>
         </MainTemplate>

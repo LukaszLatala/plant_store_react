@@ -5,12 +5,10 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ShopContext from "../../context/context";
 // import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-
 import "./Cart.css";
-
+import PayPalButton from "../PayPalButton/PayPalButton";
 // import { IconButton } from "@material-ui/core";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -42,46 +40,26 @@ const useStyles = makeStyles((theme) => ({
 
 const Cart = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const value = useContext(ShopContext);
 
-  const { cart } = value;
+  const { cart, isCartOpen, handleCartClose, cartTotal } = value;
 
   return (
     <div className={classes.root}>
-      <div>
-        <IconButton
-          onClick={handleOpen}
-          color="s"
-          aria-label="add to shopping cart"
-        >
-          <AddShoppingCartIcon />
-          <h8>({value.cart.length}) </h8>
-        </IconButton>
-      </div>
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
-        open={open}
-        onClose={handleClose}
+        open={isCartOpen}
+        onClose={handleCartClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
         }}
       >
-        <Fade in={open}>
+        <Fade in={isCartOpen}>
           <div className={classes.paper}>
             <div className="title">
               <h2>Your cart</h2>
@@ -112,7 +90,7 @@ const Cart = () => {
 
                       <button
                         className="decrease_button"
-                        disabled={productQuantity === 0 ? true : false}
+                        disabled={productQuantity === 1 ? true : false}
                         onClick={() => {
                           value.decreaseQuantityofProductInCart(productId);
                         }}
@@ -163,6 +141,14 @@ const Cart = () => {
                 );
               })}
             </ul>
+            {cartTotal === 0 ? (
+              <p>Your cart is empty</p>
+            ) : (
+              <>
+                <h5>Your total: {cartTotal}zł</h5>
+                <PayPalButton />
+              </>
+            )}
           </div>
         </Fade>
       </Modal>

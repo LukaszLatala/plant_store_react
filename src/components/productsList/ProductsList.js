@@ -45,6 +45,7 @@ const ProductsList = () => {
                   }}
                   variant="contained"
                   color="secondary"
+                  // margin="20px"
                 >
                   Add to cart
                 </Button>

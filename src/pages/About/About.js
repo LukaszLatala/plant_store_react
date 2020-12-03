@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-// import ShopContext from "../../context/context";
+import ShopContext from "../../context/context";
 import Slider from "react-slick";
 import "./About.css";
 import Footer from "../../components/Footer/Footer";
@@ -7,8 +7,8 @@ import Footer from "../../components/Footer/Footer";
 // import "~slick-carousel/slick/slick-theme.css";
 
 const About = () => {
-  // const value = useContext(ShopContext);
-  // const { products } = value;
+  const value = useContext(ShopContext);
+  const { products } = value;
 
   const settings = {
     dots: true,
@@ -32,7 +32,15 @@ const About = () => {
         </p>
         <div>
           <Slider {...settings}>
-            <div>
+            {products.map((product) => {
+              const { productImage, productName } = product;
+              return (
+                <div>
+                  <img src={productImage} alt={productName} />
+                </div>
+              );
+            })}
+            {/* <div>
               <img
                 src="https://cdn.shoplo.com/2473/products/th640/abau/3638-monstera-xl-wieksza-lola-flora.JPG"
                 alt="gg"
@@ -67,7 +75,7 @@ const About = () => {
                 src="https://cdn.shoplo.com/2473/products/th640/abas/3508-chamaedorea-metallica-lola-flora.jpg"
                 alt="Chamaedorea metallica"
               />
-            </div>
+            </div> */}
           </Slider>
           <Footer />
         </div>
