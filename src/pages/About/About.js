@@ -40,42 +40,6 @@ const About = () => {
                 </div>
               );
             })}
-            {/* <div>
-              <img
-                src="https://cdn.shoplo.com/2473/products/th640/abau/3638-monstera-xl-wieksza-lola-flora.JPG"
-                alt="gg"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.shoplo.com/2473/products/th640/abac/3598-philodendron-verrucosum-lola-flora-2.jpg"
-                alt="Philodendron verrucosum"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.shoplo.com/2473/products/th640/aba1/3516-philodendron-tortum-lola-flora.jpg"
-                alt="Philodendron Tortum"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.shoplo.com/2473/products/th640/abai/3496-aglaonema-butterfly-manis-lola-flora.jpg"
-                alt="Aglaonema butterfly manis"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.shoplo.com/2473/products/th640/abau/3510-clusia-green-magic-lola-flora.jpg"
-                alt="Clusia rosea 'Green Magic'®"
-              />
-            </div>
-            <div>
-              <img
-                src="https://cdn.shoplo.com/2473/products/th640/abas/3508-chamaedorea-metallica-lola-flora.jpg"
-                alt="Chamaedorea metallica"
-              />
-            </div> */}
           </Slider>
           <Footer />
         </div>

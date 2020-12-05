@@ -43,6 +43,13 @@ const Root = () => {
   const handleAlertOpen = () => {
     setIsAlertOpen(true);
   };
+  const showAndHideAlert = (time) => {
+    handleAlertOpen();
+
+    setTimeout(() => {
+      handleAlertClose();
+    }, time);
+  };
 
   useEffect(() => {
     calculateCartTotal();
@@ -61,14 +68,6 @@ const Root = () => {
   };
   const handleCartClose = () => {
     setIsCartOpen(false);
-  };
-
-  const showAndHideAlert = (time) => {
-    handleAlertOpen();
-
-    setTimeout(() => {
-      handleAlertClose();
-    }, time);
   };
 
   const addProductToCart = (productIdx) => {

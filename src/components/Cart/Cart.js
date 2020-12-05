@@ -52,115 +52,119 @@ const Cart = () => {
   } = value;
 
   return (
-    <div className={classes.root}>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={isCartOpen}
-        onClose={handleCartClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={isCartOpen}>
-          <div className={classes.paper}>
-            <div className="title">
-              <h2>Your cart</h2>
-            </div>
+    <div className="cart_container">
+      <div className={classes.root}>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={isCartOpen}
+          onClose={handleCartClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={isCartOpen}>
+            <div className={classes.paper}>
+              <div className="title">
+                <h2>Your cart</h2>
+              </div>
 
-            <ul style={{ padding: "0" }}>
-              {cart.map((product) => {
-                const {
-                  productName,
-                  productImage,
-                  productId,
-                  productQuantity,
-                  productPrice,
-                } = product;
-                return (
-                  <div>
-                    <li className="product_container_cart" key={productId}>
-                      <div className="image">
-                        <img
-                          src={productImage}
-                          alt={productName}
-                          style={{ width: "120px", height: "120px" }}
-                        />
-                      </div>
-                      <div className="name">
-                        <p>{productName}</p>
-                      </div>
+              <ul style={{ padding: "0" }}>
+                {cart.map((product) => {
+                  const {
+                    productName,
+                    productImage,
+                    productId,
+                    productQuantity,
+                    productPrice,
+                  } = product;
+                  return (
+                    <div>
+                      <li className="product_container_cart" key={productId}>
+                        <div className="image">
+                          <img
+                            src={productImage}
+                            alt={productName}
+                            style={{ width: "120px", height: "120px" }}
+                          />
+                        </div>
+                        <div className="name">
+                          <p>{productName}</p>
+                        </div>
 
-                      <button
-                        className="decrease_button"
-                        disabled={productQuantity === 1 ? true : false}
-                        onClick={() => {
-                          value.decreaseQuantityofProductInCart(productId);
-                        }}
-                      >
-                        -
-                      </button>
-                      <p
-                        className="quantity_information"
-                        style={
-                          productQuantity === 0
-                            ? {
-                                opacity: 0.3,
-                              }
-                            : null
-                        }
-                      >
-                        {productQuantity}{" "}
-                      </p>
-                      <button
-                        className="increase_button"
-                        onClick={() => {
-                          value.increaseQuantityofProductInCart(productId);
-                        }}
-                      >
-                        +
-                      </button>
-
-                      <div className="price">
-                        <p> Price: {productPrice}</p>
-                      </div>
-
-                      <div className="buy_btn">
-                        <button className="buy_btn">Buy</button>
-                      </div>
-
-                      <div className="remove_btn">
                         <button
-                          className="btn_remove"
+                          className="decrease_button"
+                          disabled={productQuantity === 1 ? true : false}
                           onClick={() => {
-                            value.removeProductFromCart(productId);
+                            value.decreaseQuantityofProductInCart(productId);
                           }}
                         >
-                          Remove
+                          -
                         </button>
-                      </div>
-                    </li>
+                        <p
+                          className="quantity_information"
+                          style={
+                            productQuantity === 0
+                              ? {
+                                  opacity: 0.3,
+                                }
+                              : null
+                          }
+                        >
+                          {productQuantity}{" "}
+                        </p>
+                        <button
+                          className="increase_button"
+                          onClick={() => {
+                            value.increaseQuantityofProductInCart(productId);
+                          }}
+                        >
+                          +
+                        </button>
+
+                        <div className="price_div">
+                          <p className="price"> Price: {productPrice} zł</p>
+                        </div>
+
+                        {/* <div className="buy_btn">
+                          <button className="buy_btn">Buy</button>
+                        </div> */}
+
+                        <div className="remove_btn">
+                          <button
+                            className="btn_remove"
+                            onClick={() => {
+                              value.removeProductFromCart(productId);
+                            }}
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </li>
+                    </div>
+                  );
+                })}
+              </ul>
+              {cartTotal === 0 ? (
+                <p>Your cart is empty</p>
+              ) : (
+                <>
+                  <div className="payment_information">
+                    <h5>Your total: {cartTotal}zł</h5>
+                    <PayPalButton
+                      cartTotal={cartTotal}
+                      clearAndCloseCart={clearAndCloseCart}
+                    />
                   </div>
-                );
-              })}
-            </ul>
-            {cartTotal === 0 ? (
-              <p>Your cart is empty</p>
-            ) : (
-              <>
-                <h5>Your total: {cartTotal}zł</h5>
-                <PayPalButton
-                  cartTotal={cartTotal}
-                  clearAndCloseCart={clearAndCloseCart}
-                />
-              </>
-            )}
-          </div>
-        </Fade>
-      </Modal>
+                </>
+              )}
+            </div>
+          </Fade>
+        </Modal>
+      </div>
     </div>
   );
 };

@@ -21,23 +21,25 @@ const Alert = () => {
   const { handleAlertClose, isAlertOpen } = value;
 
   return (
-    <div className={classes.root}>
-      <Collapse in={isAlertOpen}>
-        <MaterialAlert
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-              onClick={handleAlertClose}
-            >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
-          }
-        >
-          Close me!
-        </MaterialAlert>
-      </Collapse>
+    <div className="alert">
+      <div className={classes.root}>
+        <Collapse in={isAlertOpen}>
+          <MaterialAlert
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={handleAlertClose}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+          >
+            You added product to Cart
+          </MaterialAlert>
+        </Collapse>
+      </div>
     </div>
   );
 };
