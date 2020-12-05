@@ -2,9 +2,10 @@ import React from "react";
 import PaypalExpressBtn from "react-paypal-express-checkout";
 import { idKey } from "../../idKey/idKey";
 
-const PayPalButton = () => {
+const PayPalButton = ({ cartTotal, clearAndCloseCart }) => {
   const onSuccessPayment = (payment) => {
     console.log(payment);
+    clearAndCloseCart();
   };
 
   const onCancelPayment = (reason) => {
@@ -16,7 +17,7 @@ const PayPalButton = () => {
   };
 
   const client = {
-    sandbox: "idKey",
+    sandbox: idKey,
     production: "",
   };
 
@@ -28,10 +29,9 @@ const PayPalButton = () => {
       currency="PLN"
       env="sandbox"
       client={client}
+      total={cartTotal}
     />
   );
 };
 
 export default PayPalButton;
-
-// ukryc klcuz tak samo jak api w sandbox

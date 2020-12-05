@@ -43,7 +43,13 @@ const Cart = () => {
 
   const value = useContext(ShopContext);
 
-  const { cart, isCartOpen, handleCartClose, cartTotal } = value;
+  const {
+    cart,
+    isCartOpen,
+    handleCartClose,
+    cartTotal,
+    clearAndCloseCart,
+  } = value;
 
   return (
     <div className={classes.root}>
@@ -146,7 +152,10 @@ const Cart = () => {
             ) : (
               <>
                 <h5>Your total: {cartTotal}zł</h5>
-                <PayPalButton />
+                <PayPalButton
+                  cartTotal={cartTotal}
+                  clearAndCloseCart={clearAndCloseCart}
+                />
               </>
             )}
           </div>

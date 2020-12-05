@@ -1,4 +1,5 @@
 import React from "react";
+import Alert from "../components/Alert/Alert";
 import Cart from "../components/Cart/Cart";
 import Navbar from "../components/navigations/Navbar/Navbar";
 
@@ -6,6 +7,7 @@ const MainTemplate = ({ children }) => {
   return (
     <>
       <Navbar />
+      <Alert />
       <Cart />
       {children}
     </>

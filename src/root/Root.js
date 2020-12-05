@@ -19,6 +19,7 @@ const Root = () => {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartTotal, setCartTotal] = useState(0);
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
   // const [counter, setCounter] = useState(0);
 
   // const increaseCounter = () => {
@@ -34,6 +35,14 @@ const Root = () => {
   // useEffect(() => {
   //   increaseCounter();
   // }, [cart]);
+
+  const handleAlertClose = () => {
+    setIsAlertOpen(false);
+  };
+
+  const handleAlertOpen = () => {
+    setIsAlertOpen(true);
+  };
 
   useEffect(() => {
     calculateCartTotal();
@@ -54,11 +63,19 @@ const Root = () => {
     setIsCartOpen(false);
   };
 
+  const showAndHideAlert = (time) => {
+    handleAlertOpen();
+
+    setTimeout(() => {
+      handleAlertClose();
+    }, time);
+  };
+
   const addProductToCart = (productIdx) => {
     const newProduct = products.find(
       ({ productId }) => productId === productIdx
     );
-
+    showAndHideAlert(3000);
     setCart([...new Set([...cart, newProduct])]);
     console.log(newProduct);
   };
@@ -105,6 +122,12 @@ const Root = () => {
     setCart([...mappedCart]);
   };
 
+  const clearAndCloseCart = () => {
+    setCart([]);
+    handleCartClose();
+    showAndHideAlert(4000);
+  };
+
   return (
     <BrowserRouter>
       <ShopContext.Provider
@@ -120,6 +143,10 @@ const Root = () => {
           handleCartClose,
           handleCartOpen,
           cartTotal,
+          clearAndCloseCart,
+          isAlertOpen,
+          handleAlertClose,
+          handleAlertOpen,
         }}
       >
         <MainTemplate>
