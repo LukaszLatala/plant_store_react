@@ -11,6 +11,7 @@ import MainTemplate from "../templates/MainTemplate";
 import ShopContext from "../context/context";
 import { productsData } from "../localData/productsData.js";
 import SingleProduct from "../pages/SingleProduct/SingleProduct";
+import { alertContentAndTypes } from "../utils/alertContentAndTypes";
 
 const Root = () => {
   // const data = productsData;
@@ -20,6 +21,7 @@ const Root = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartTotal, setCartTotal] = useState(0);
   const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const [alertSpecification, setAlertSpecification] = useState({});
   // const [counter, setCounter] = useState(0);
 
   // const increaseCounter = () => {
@@ -40,11 +42,14 @@ const Root = () => {
     setIsAlertOpen(false);
   };
 
-  const handleAlertOpen = () => {
+  const showAndHideAlert = (time, content, type) => {
+    const alert = {
+      type,
+      content,
+    };
+    setAlertSpecification(alert);
+
     setIsAlertOpen(true);
-  };
-  const showAndHideAlert = (time) => {
-    handleAlertOpen();
 
     setTimeout(() => {
       handleAlertClose();
@@ -74,7 +79,11 @@ const Root = () => {
     const newProduct = products.find(
       ({ productId }) => productId === productIdx
     );
-    showAndHideAlert(3000);
+    showAndHideAlert(
+      3000,
+      alertContentAndTypes.content.addProduct,
+      alertContentAndTypes.types.add
+    );
     setCart([...new Set([...cart, newProduct])]);
     console.log(newProduct);
   };
@@ -86,6 +95,12 @@ const Root = () => {
       }
       return productId !== product.productId;
     });
+
+    showAndHideAlert(
+      4000,
+      alertContentAndTypes.content.deleteProduct,
+      alertContentAndTypes.types.delete
+    );
 
     setCart([...filteredProduct]);
   };
@@ -124,7 +139,11 @@ const Root = () => {
   const clearAndCloseCart = () => {
     setCart([]);
     handleCartClose();
-    showAndHideAlert(4000);
+    showAndHideAlert(
+      4000,
+      alertContentAndTypes.content.paymentSucceed,
+      "success"
+    );
   };
 
   return (
@@ -145,7 +164,7 @@ const Root = () => {
           clearAndCloseCart,
           isAlertOpen,
           handleAlertClose,
-          handleAlertOpen,
+          alertSpecification,
         }}
       >
         <MainTemplate>
@@ -165,3 +184,5 @@ const Root = () => {
 export default Root;
 
 // poprawic input na button (nazwy)
+
+// zaimplementować te alerty w projekcie minishop

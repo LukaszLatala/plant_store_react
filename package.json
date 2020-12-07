@@ -13,6 +13,8 @@
     "css": "^3.0.0",
     "font": "0.0.4",
     "for": "^0.1.0",
+    "gsap": "^3.5.1",
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-paypal-express-checkout": "^1.0.5",

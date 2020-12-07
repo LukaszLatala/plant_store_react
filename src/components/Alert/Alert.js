@@ -18,13 +18,14 @@ const useStyles = makeStyles((theme) => ({
 const Alert = () => {
   const classes = useStyles();
   const value = useContext(ShopContext);
-  const { handleAlertClose, isAlertOpen } = value;
+  const { handleAlertClose, isAlertOpen, alertSpecification } = value;
 
   return (
     <div className="alert">
       <div className={classes.root}>
         <Collapse in={isAlertOpen}>
           <MaterialAlert
+            severity={alertSpecification.type}
             action={
               <IconButton
                 aria-label="close"
@@ -36,7 +37,7 @@ const Alert = () => {
               </IconButton>
             }
           >
-            You added product to Cart
+            {alertSpecification.content}
           </MaterialAlert>
         </Collapse>
       </div>
