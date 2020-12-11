@@ -7,7 +7,9 @@ import Footer from "../../components/Footer/Footer";
 
 import { Link } from "react-router-dom";
 import { routes } from "../../../src/routes/routes";
+import { animateScroll as scroll } from "react-scroll";
 
+// https://material-ui.com/components/grid-list/#image-only-grid-list
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -66,7 +68,11 @@ const Home = () => {
           repellat rem fuga odit laboriosam esse sequi pariatur cupiditate.
         </p>{" "}
       </div>
-      <Link className="return_link" to={routes.products}>
+      <Link
+        className="return_link"
+        to={routes.products}
+        onClick={() => scroll.scrollToTop()}
+      >
         <div className="container_images">
           <div className={classes.root}>
             <GridList cellHeight={280} className={classes.gridList} cols={2}>

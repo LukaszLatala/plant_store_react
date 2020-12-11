@@ -22,6 +22,8 @@ const Root = () => {
   const [cartTotal, setCartTotal] = useState(0);
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [alertSpecification, setAlertSpecification] = useState({});
+
+  const [searchProductNameInput, setSearchProductNameInput] = useState("");
   // const [counter, setCounter] = useState(0);
 
   // const increaseCounter = () => {
@@ -37,6 +39,10 @@ const Root = () => {
   // useEffect(() => {
   //   increaseCounter();
   // }, [cart]);
+
+  const handleSearchProductNameInputChange = (e) => {
+    setSearchProductNameInput(e.target.value);
+  };
 
   const handleAlertClose = () => {
     setIsAlertOpen(false);
@@ -165,6 +171,8 @@ const Root = () => {
           isAlertOpen,
           handleAlertClose,
           alertSpecification,
+          searchProductNameInput,
+          handleSearchProductNameInputChange,
         }}
       >
         <MainTemplate>
