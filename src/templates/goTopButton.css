@@ -9,10 +9,10 @@
     cursor: pointer;
     background-size: 60%;
     background-repeat: no-repeat;
-    background-color: crimson;
+    background-color: #f50057;
     background-position:  50%;
     z-index: 1000;
     bottom: 10%;
-    right: 3%;
+    right: 1%;
 
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer";
+// import Footer from "../../components/Footer/Footer";
 import FilterMenu from "../../components/ProductFilters/FilterMenu/FilterMenu";
 // import Cart from "../../components/Cart/Cart";
 

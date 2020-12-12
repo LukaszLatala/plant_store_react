@@ -18,7 +18,7 @@ import img15 from "../assets/images/philodendron-tortum-lola-flora.jpg";
 export const productsData = [
   {
     productId: 1,
-    productName: "Aspidistra-lola-flora",
+    productName: "Aspidistra",
     productPrice: 89,
     productImage: img1,
     productQuantity: 1,
@@ -27,7 +27,7 @@ export const productsData = [
   },
   {
     productId: 2,
-    productName: "Epipremnum-marable-queen-lolaflora",
+    productName: "Epipremnum-marable-queen",
     productPrice: 29,
     productImage: img2,
     productQuantity: 1,
@@ -36,7 +36,7 @@ export const productsData = [
   },
   {
     productId: 3,
-    productName: "Ficus-lyrata-bambino-lola-flora",
+    productName: "Ficus-lyrata-bambino",
     productPrice: 45,
     productImage: img3,
     productQuantity: 1,
@@ -45,7 +45,7 @@ export const productsData = [
   },
   {
     productId: 4,
-    productName: "Ficus-lyrata-lola-flora",
+    productName: "Ficus-lyrata",
     productPrice: 160,
     productImage: img4,
     productQuantity: 1,
@@ -54,7 +54,7 @@ export const productsData = [
   },
   {
     productId: 5,
-    productName: "Haworthia-spider-white-lola-flora",
+    productName: "Haworthia-spider-white",
     productPrice: 39,
     productImage: img5,
     productQuantity: 1,
@@ -63,7 +63,7 @@ export const productsData = [
   },
   {
     productId: 6,
-    productName: "Maranta-lola-flora",
+    productName: "Maranta",
     productPrice: 38,
     productImage: img6,
     productQuantity: 1,
@@ -72,7 +72,7 @@ export const productsData = [
   },
   {
     productId: 7,
-    productName: "Mini-banan-lola-flora",
+    productName: "Mini-banan",
     productPrice: 19,
     productImage: img7,
     productQuantity: 1,
@@ -81,7 +81,7 @@ export const productsData = [
   },
   {
     productId: 8,
-    productName: "Nolina-lola-flora",
+    productName: "Nolina",
     productPrice: 79,
     productImage: img8,
     productQuantity: 1,
@@ -90,7 +90,7 @@ export const productsData = [
   },
   {
     productId: 9,
-    productName: "Opuncja-zielona-lola-flora",
+    productName: "Opuncja-zielona",
     productPrice: 99,
     productImage: img9,
     productQuantity: 1,
@@ -99,7 +99,7 @@ export const productsData = [
   },
   {
     productId: 10,
-    productName: "Philodendron-scandens-lola-flora",
+    productName: "Philodendron-scandens",
     productPrice: 29,
     productImage: img10,
     productQuantity: 1,
@@ -117,7 +117,7 @@ export const productsData = [
   },
   {
     productId: 12,
-    productName: "Sansevieria-lola-flora",
+    productName: "Sansevieria",
     productPrice: 29,
     productImage: img12,
     productQuantity: 1,
@@ -126,7 +126,7 @@ export const productsData = [
   },
   {
     productId: 13,
-    productName: "Scindapsus-pictus-lola-flora",
+    productName: "Scindapsus-pictus",
     productPrice: 29,
     productImage: img13,
     productQuantity: 1,
@@ -135,7 +135,7 @@ export const productsData = [
   },
   {
     productId: 14,
-    productName: "Zamioculcas-duzy-lola-flora",
+    productName: "Zamioculcas-duzy",
     productPrice: 79,
     productImage: img14,
     productQuantity: 1,
