@@ -24,6 +24,7 @@ const Root = () => {
   const [alertSpecification, setAlertSpecification] = useState({});
 
   const [searchProductNameInput, setSearchProductNameInput] = useState("");
+
   // const [counter, setCounter] = useState(0);
 
   // const increaseCounter = () => {
