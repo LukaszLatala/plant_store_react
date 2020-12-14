@@ -13,6 +13,7 @@ import { productsData } from "../localData/productsData.js";
 import SingleProduct from "../pages/SingleProduct/SingleProduct";
 import { alertContentAndTypes } from "../utils/alertContentAndTypes";
 
+// git commit --amend --reset-author
 const Root = () => {
   // const data = productsData;
 
