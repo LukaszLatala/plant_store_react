@@ -16,7 +16,7 @@ import { alertContentAndTypes } from "../utils/alertContentAndTypes";
 // git commit --amend --reset-author
 const Root = () => {
   // const data = productsData;
-
+  const [initialProducts, setInitialProducts] = useState([...productsData]);
   const [products, setProducts] = useState([...productsData]);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -25,6 +25,7 @@ const Root = () => {
   const [alertSpecification, setAlertSpecification] = useState({});
 
   const [searchProductNameInput, setSearchProductNameInput] = useState("");
+  const [filterProductPriceInput, setFilterProductPriceInput] = useState(0);
 
   // const [counter, setCounter] = useState(0);
 
@@ -45,6 +46,31 @@ const Root = () => {
   const handleSearchProductNameInputChange = (e) => {
     setSearchProductNameInput(e.target.value);
   };
+
+  const handleProductPriceInputChange = (e) => {
+    setFilterProductPriceInput(e.target.value);
+  };
+
+  const filterProducts = () => {
+    let tempProducts = [...initialProducts];
+
+    if (searchProductNameInput.length > 0) {
+      tempProducts = tempProducts.filter((product) => {
+        return (
+          searchProductNameInput.toLowerCase() ===
+          product.productName
+            .toLowerCase()
+            .slice(0, searchProductNameInput.length)
+        );
+      });
+    }
+
+    setProducts([...tempProducts]);
+  };
+
+  useEffect(() => {
+    filterProducts();
+  }, [searchProductNameInput]);
 
   const handleAlertClose = () => {
     setIsAlertOpen(false);
@@ -175,6 +201,8 @@ const Root = () => {
           alertSpecification,
           searchProductNameInput,
           handleSearchProductNameInputChange,
+          handleProductPriceInputChange,
+          filterProductPriceInput,
         }}
       >
         <MainTemplate>
