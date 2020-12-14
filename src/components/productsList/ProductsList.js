@@ -3,6 +3,7 @@ import ShopContext from "../../context/context";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import "./ProductList.css";
+import Footer from "../../components/Footer/Footer";
 
 const ProductsList = () => {
   const value = useContext(ShopContext);
@@ -54,6 +55,9 @@ const ProductsList = () => {
           )}
         </div>
       </ul>
+      <div>
+        <Footer />
+      </div>
     </>
   );
 };

@@ -1,0 +1,18 @@
+.goTop__btn {
+    background-image: url('../assets/icons/up-arrow.svg');
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: fixed;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-color: #f50057;
+    background-position:  50%;
+    z-index: 1000;
+    bottom: 10%;
+    right: 1%;
+
+}
