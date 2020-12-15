@@ -3,13 +3,22 @@ import ShopContext from "../../../context/context";
 
 const FilterByProductPrice = () => {
   const value = useContext(ShopContext);
-  const { handleProductPriceInputChange, filterProductPriceInput } = value;
+  const {
+    handleProductPriceInputChange,
+    filterProductPriceInput,
+    productMaxPrice,
+    productMinPrice,
+  } = value;
 
   return (
     <>
-      <label htmlFor="searchByPrice">product price:</label>
+      <label htmlFor="searchByPrice">
+        product price: {filterProductPriceInput}
+      </label>
       <input
         type="range"
+        min={0}
+        max={productMaxPrice}
         name="searchByPrice"
         id="searchByPrice"
         value={filterProductPriceInput}

@@ -16,7 +16,7 @@ import { alertContentAndTypes } from "../utils/alertContentAndTypes";
 // git commit --amend --reset-author
 const Root = () => {
   // const data = productsData;
-  const [initialProducts, setInitialProducts] = useState([...productsData]);
+  const [initialProducts] = useState([...productsData]);
   const [products, setProducts] = useState([...productsData]);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -26,6 +26,8 @@ const Root = () => {
 
   const [searchProductNameInput, setSearchProductNameInput] = useState("");
   const [filterProductPriceInput, setFilterProductPriceInput] = useState(0);
+  const [productMaxPrice, setProductMaxPrice] = useState(0);
+  const [filterByFreeDelivery, setFilterByFreeDelivery] = useState(false);
 
   // const [counter, setCounter] = useState(0);
 
@@ -51,6 +53,10 @@ const Root = () => {
     setFilterProductPriceInput(e.target.value);
   };
 
+  const handleFreeDeliveryChange = (e) => {
+    setFilterByFreeDelivery(e.target.checked);
+  };
+
   const filterProducts = () => {
     let tempProducts = [...initialProducts];
 
@@ -65,12 +71,41 @@ const Root = () => {
       });
     }
 
+    const tempProductPrice = parseInt(filterProductPriceInput);
+
+    tempProducts = tempProducts.filter((product) => {
+      return product.productPrice <= tempProductPrice;
+    });
+
+    if (filterByFreeDelivery === true) {
+      tempProducts = tempProducts.filter((product) => {
+        return product.freeDelivery === filterByFreeDelivery;
+      });
+    }
+
     setProducts([...tempProducts]);
   };
 
   useEffect(() => {
     filterProducts();
-  }, [searchProductNameInput]);
+  }, [searchProductNameInput, filterProductPriceInput, filterByFreeDelivery]);
+
+  const geProductMaxPrice = () => {
+    const maxPrice = Math.max(
+      ...initialProducts.map((product) => product.productPrice)
+    );
+    setProductMaxPrice(maxPrice);
+    setFilterProductPriceInput(maxPrice);
+  };
+
+  useEffect(() => {
+    geProductMaxPrice();
+  }, []);
+
+  // const productMinPrice = Math.min(
+  //   ...initialProducts.map((product) => product.productPrice)
+  // );
+  // console.log(productMinPrice);
 
   const handleAlertClose = () => {
     setIsAlertOpen(false);
@@ -203,6 +238,10 @@ const Root = () => {
           handleSearchProductNameInputChange,
           handleProductPriceInputChange,
           filterProductPriceInput,
+          // productMinPrice,
+          productMaxPrice,
+          handleFreeDeliveryChange,
+          filterByFreeDelivery,
         }}
       >
         <MainTemplate>

@@ -32,7 +32,7 @@ export const productsData = [
     productImage: img2,
     productQuantity: 1,
     productCategory: "plant",
-    freeDelivery: true,
+    freeDelivery: false,
   },
   {
     productId: 3,
@@ -41,7 +41,7 @@ export const productsData = [
     productImage: img3,
     productQuantity: 1,
     productCategory: "plant",
-    freeDelivery: true,
+    freeDelivery: false,
   },
   {
     productId: 4,
@@ -59,7 +59,7 @@ export const productsData = [
     productImage: img5,
     productQuantity: 1,
     productCategory: "plant",
-    freeDelivery: true,
+    freeDelivery: false,
   },
   {
     productId: 6,
@@ -68,7 +68,7 @@ export const productsData = [
     productImage: img6,
     productQuantity: 1,
     productCategory: "plant",
-    freeDelivery: true,
+    freeDelivery: false,
   },
   {
     productId: 7,
@@ -77,7 +77,7 @@ export const productsData = [
     productImage: img7,
     productQuantity: 1,
     productCategory: "plant",
-    freeDelivery: true,
+    freeDelivery: false,
   },
   {
     productId: 8,
@@ -104,7 +104,7 @@ export const productsData = [
     productImage: img10,
     productQuantity: 1,
     productCategory: "plant",
-    freeDelivery: true,
+    freeDelivery: false,
   },
   {
     productId: 11,
@@ -122,7 +122,7 @@ export const productsData = [
     productImage: img12,
     productQuantity: 1,
     productCategory: "plant",
-    freeDelivery: true,
+    freeDelivery: false,
   },
   {
     productId: 13,
@@ -131,7 +131,7 @@ export const productsData = [
     productImage: img13,
     productQuantity: 1,
     productCategory: "plant",
-    freeDelivery: true,
+    freeDelivery: false,
   },
   {
     productId: 14,

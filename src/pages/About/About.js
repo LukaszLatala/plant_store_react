@@ -6,6 +6,40 @@ import Footer from "../../components/Footer/Footer";
 // import "~slick-carousel/slick/slick.css";
 // import "~slick-carousel/slick/slick-theme.css";
 
+const products = [
+  {
+    productName: "first",
+    category: "Tv",
+  },
+
+  {
+    productName: "second2",
+    category: "Phone",
+  },
+  {
+    productName: "second3",
+    category: "Phone",
+  },
+  {
+    productName: "second4",
+    category: "Phone",
+  },
+
+  {
+    productName: "thrid",
+    category: "Laptop",
+  },
+  {
+    productName: "test",
+    category: "washmachine",
+  },
+];
+
+const productsCatgories = [
+  ...new Set(products.map((product) => product.category)),
+];
+console.log(productsCatgories);
+
 const About = () => {
   const value = useContext(ShopContext);
   const { products } = value;
@@ -19,6 +53,13 @@ const About = () => {
   };
   return (
     <>
+      <label htmlFor="categorySelct">Choose category:</label>
+      <select name="categorySelct" id="categorySelct">
+        {productsCatgories.map((el) => {
+          return <option value={el}>{el}</option>;
+        })}
+      </select>
+
       <div>
         <h1> Our Product is our mission </h1>
         <p>
@@ -41,7 +82,6 @@ const About = () => {
               );
             })}
           </Slider>
-          <Footer />
         </div>
         )
       </div>

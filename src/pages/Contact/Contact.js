@@ -20,7 +20,6 @@ const Contact = () => {
             Send us a message!
           </Button>
         </form>
-        <Footer />
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import Cart from "../components/Cart/Cart";
 import Navbar from "../components/navigations/Navbar/Navbar";
 import "./goTopButton.css";
 import { animateScroll as scroll } from "react-scroll";
+import Footer from "../components/Footer/Footer";
 
 const MainTemplate = ({ children }) => {
   const [isScrollIconVisible, setIsScrollIconVisible] = useState(false);
@@ -29,6 +30,7 @@ const MainTemplate = ({ children }) => {
         ></button>
       ) : null}
       {children}
+      <Footer />
     </>
   );
 };

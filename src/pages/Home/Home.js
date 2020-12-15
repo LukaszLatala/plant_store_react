@@ -89,9 +89,6 @@ const Home = () => {
           </div>
         </div>
       </Link>
-      <div>
-        <Footer />
-      </div>
     </>
   );
 };
