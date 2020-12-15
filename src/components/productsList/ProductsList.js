@@ -55,9 +55,7 @@ const ProductsList = () => {
           )}
         </div>
       </ul>
-      <div>
-        <Footer />
-      </div>
+      <div>{/* <Footer /> */}</div>
     </>
   );
 };

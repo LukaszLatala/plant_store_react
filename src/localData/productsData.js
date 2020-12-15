@@ -1,3 +1,4 @@
+// rośliny
 import img1 from "../assets/images/aspidistra-lola-flora-1.jpg";
 import img2 from "../assets/images/epipremnum-marable-queen-lolaflora.jpg";
 import img3 from "../assets/images/ficus-lyrata-bambino-lola-flora.jpg";
@@ -13,6 +14,15 @@ import img12 from "../assets/images/sansevieria-lola-flora.jpg";
 import img13 from "../assets/images/scindapsus-pictus-lola-flora.jpg";
 import img14 from "../assets/images/zamioculcas-duzy-lola-flora.jpg";
 import img15 from "../assets/images/philodendron-tortum-lola-flora.jpg";
+
+// doniczki
+import img16 from "../assets/images/Osłonka Elliot.jpg";
+import img17 from "../assets/images/Osłonka Little.jpg";
+import img18 from "../assets/images/Osłonka Luson.jpg";
+import img19 from "../assets/images/Osłonka Stef mini.jpg";
+import img20 from "../assets/images/Osłonka Venus różowa.jpg";
+import img21 from "../assets/images/Niebieska przecierana osłonka.jpg";
+
 // https://lolaflora.pl
 
 export const productsData = [
@@ -149,6 +159,60 @@ export const productsData = [
     productImage: img15,
     productQuantity: 1,
     productCategory: "plant",
+    freeDelivery: true,
+  },
+  {
+    productId: 16,
+    productName: "Osłonka Elliot",
+    productPrice: 39,
+    productImage: img16,
+    productQuantity: 1,
+    productCategory: "flowerpot",
+    freeDelivery: true,
+  },
+  {
+    productId: 17,
+    productName: "Osłonka Little",
+    productPrice: 29,
+    productImage: img17,
+    productQuantity: 1,
+    productCategory: "flowerpot",
+    freeDelivery: true,
+  },
+  {
+    productId: 18,
+    productName: "Osłonka Luson",
+    productPrice: 49,
+    productImage: img18,
+    productQuantity: 1,
+    productCategory: "flowerpot",
+    freeDelivery: true,
+  },
+  {
+    productId: 19,
+    productName: "Osłonka Stef mini",
+    productPrice: 39,
+    productImage: img19,
+    productQuantity: 1,
+    productCategory: "flowerpot",
+    freeDelivery: true,
+  },
+  {
+    productId: 20,
+    productName: "Osłonka Venus różowa",
+    productPrice: 24,
+    productImage: img20,
+    productQuantity: 1,
+    productCategory: "flowerpot",
+    freeDelivery: true,
+  },
+  {
+    productId: 21,
+    productName: "Niebieska przecierana osłonka",
+    productPrice: 39,
+    productImage: img21,
+    productQuantity: 1,
+    productCategory: "flowerpot",
     freeDelivery: true,
   },
 ];

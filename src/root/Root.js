@@ -28,6 +28,7 @@ const Root = () => {
   const [filterProductPriceInput, setFilterProductPriceInput] = useState(0);
   const [productMaxPrice, setProductMaxPrice] = useState(0);
   const [filterByFreeDelivery, setFilterByFreeDelivery] = useState(false);
+  const [filterByCategory, setFilterByCategory] = useState("");
 
   // const [counter, setCounter] = useState(0);
 
@@ -57,6 +58,16 @@ const Root = () => {
     setFilterByFreeDelivery(e.target.checked);
   };
 
+  const handleFilterByCategory = (e) => {
+    setFilterByCategory(e.target.value);
+  };
+
+  const productsCatgories = [
+    ...new Set(products.map((product) => product.productCategory)),
+  ];
+
+  console.log(productsCatgories);
+
   const filterProducts = () => {
     let tempProducts = [...initialProducts];
 
@@ -83,12 +94,28 @@ const Root = () => {
       });
     }
 
+    if (filterByCategory === "plant") {
+      tempProducts = tempProducts.filter((product) => {
+        return product.productCategory === filterByCategory;
+      });
+    }
+    if (filterByCategory === "flowerpot") {
+      tempProducts = tempProducts.filter((product) => {
+        return product.productCategory === filterByCategory;
+      });
+    }
+
     setProducts([...tempProducts]);
   };
 
   useEffect(() => {
     filterProducts();
-  }, [searchProductNameInput, filterProductPriceInput, filterByFreeDelivery]);
+  }, [
+    searchProductNameInput,
+    filterProductPriceInput,
+    filterByFreeDelivery,
+    filterByCategory,
+  ]);
 
   const geProductMaxPrice = () => {
     const maxPrice = Math.max(
@@ -242,6 +269,9 @@ const Root = () => {
           productMaxPrice,
           handleFreeDeliveryChange,
           filterByFreeDelivery,
+
+          productsCatgories,
+          handleFilterByCategory,
         }}
       >
         <MainTemplate>

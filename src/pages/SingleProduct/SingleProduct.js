@@ -31,7 +31,7 @@ const SingleProduct = (props) => {
       <div className="box">
         <p className="single_product_name"> {productName}</p>
         <p> Produkt numer: {productId}</p>
-        <p> Koszt: {productPrice}</p>
+        <p> Koszt: {productPrice} zł</p>
 
         <p style={{ color: "black", padding: "30px" }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam,

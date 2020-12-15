@@ -7,7 +7,7 @@ const FilterByProductPrice = () => {
     handleProductPriceInputChange,
     filterProductPriceInput,
     productMaxPrice,
-    productMinPrice,
+    // productMinPrice,
   } = value;
 
   return (
