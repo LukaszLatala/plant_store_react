@@ -9,13 +9,8 @@ const Contact = () => {
       <div className="contact">
         <form>
           <h3> Write to us!</h3>
-          <textarea
-            // value={this.state.value}
-            // onChange={this.handleChange}
-            placeholder="Your message..."
-          ></textarea>
-          {/* <button>Wyślij</button> */}
-          {/* <Example /> */}
+          <textarea placeholder="Your message..."></textarea>
+
           <Button className="contact_btn" variant="contained" color="secondary">
             Send us a message!
           </Button>

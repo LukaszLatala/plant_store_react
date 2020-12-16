@@ -11,9 +11,7 @@ const Products = () => {
       <h1>Products</h1>
       <FilterMenu />
 
-      {/* <Cart /> */}
       <ProductsList />
-      {/* <Footer /> */}
     </div>
   );
 };

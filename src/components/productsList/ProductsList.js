@@ -3,7 +3,6 @@ import ShopContext from "../../context/context";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import "./ProductList.css";
-import Footer from "../../components/Footer/Footer";
 
 const ProductsList = () => {
   const value = useContext(ShopContext);
@@ -16,12 +15,6 @@ const ProductsList = () => {
           {products.map(
             ({ productId, productName, productPrice, productImage }) => (
               <li key={productId} className="product">
-                {/* <Link to={routes.single_product}>SingleProduct</Link> */}
-                {/* <Link to="/products:/single">
-                  {" "}
-                  <img src={productImage} alt={productName} />
-                </Link> */}
-
                 <Link
                   to={{
                     pathname: `/products/${productName}`,
@@ -46,7 +39,6 @@ const ProductsList = () => {
                   }}
                   variant="contained"
                   color="secondary"
-                  // margin="20px"
                 >
                   Add to cart
                 </Button>
@@ -55,7 +47,6 @@ const ProductsList = () => {
           )}
         </div>
       </ul>
-      <div>{/* <Footer /> */}</div>
     </>
   );
 };

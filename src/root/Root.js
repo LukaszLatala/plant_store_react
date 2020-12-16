@@ -12,7 +12,7 @@ import ShopContext from "../context/context";
 import { productsData } from "../localData/productsData.js";
 import SingleProduct from "../pages/SingleProduct/SingleProduct";
 import { alertContentAndTypes } from "../utils/alertContentAndTypes";
-import { Category } from "@material-ui/icons";
+// import { Category } from "@material-ui/icons";
 
 // git commit --amend --reset-author
 

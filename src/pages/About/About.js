@@ -2,43 +2,43 @@ import React, { useContext } from "react";
 import ShopContext from "../../context/context";
 import Slider from "react-slick";
 import "./About.css";
-import Footer from "../../components/Footer/Footer";
+
 // import "~slick-carousel/slick/slick.css";
 // import "~slick-carousel/slick/slick-theme.css";
 
-const products = [
-  {
-    productName: "first",
-    category: "Tv",
-  },
+// const products = [
+//   {
+//     productName: "first",
+//     category: "Tv",
+//   },
 
-  {
-    productName: "second2",
-    category: "Phone",
-  },
-  {
-    productName: "second3",
-    category: "Phone",
-  },
-  {
-    productName: "second4",
-    category: "Phone",
-  },
+//   {
+//     productName: "second2",
+//     category: "Phone",
+//   },
+//   {
+//     productName: "second3",
+//     category: "Phone",
+//   },
+//   {
+//     productName: "second4",
+//     category: "Phone",
+//   },
 
-  {
-    productName: "thrid",
-    category: "Laptop",
-  },
-  {
-    productName: "test",
-    category: "washmachine",
-  },
-];
+//   {
+//     productName: "thrid",
+//     category: "Laptop",
+//   },
+//   {
+//     productName: "test",
+//     category: "washmachine",
+//   },
+// ];
 
-const productsCatgories = [
-  ...new Set(products.map((product) => product.category)),
-];
-console.log(productsCatgories);
+// const productsCatgories = [
+//   ...new Set(products.map((product) => product.category)),
+// ];
+// console.log(productsCatgories);
 
 const About = () => {
   const value = useContext(ShopContext);
@@ -53,12 +53,12 @@ const About = () => {
   };
   return (
     <>
-      <label htmlFor="categorySelct">Choose category:</label>
+      {/* <label htmlFor="categorySelct">Choose category:</label>
       <select name="categorySelct" id="categorySelct">
         {productsCatgories.map((el) => {
           return <option value={el}>{el}</option>;
         })}
-      </select>
+      </select> */}
 
       <div>
         <h1> Our Product is our mission </h1>
