@@ -12,8 +12,10 @@ import ShopContext from "../context/context";
 import { productsData } from "../localData/productsData.js";
 import SingleProduct from "../pages/SingleProduct/SingleProduct";
 import { alertContentAndTypes } from "../utils/alertContentAndTypes";
+import { Category } from "@material-ui/icons";
 
 // git commit --amend --reset-author
+
 const Root = () => {
   // const data = productsData;
   const [initialProducts] = useState([...productsData]);
@@ -99,11 +101,17 @@ const Root = () => {
         return product.productCategory === filterByCategory;
       });
     }
+
     if (filterByCategory === "flowerpot") {
       tempProducts = tempProducts.filter((product) => {
         return product.productCategory === filterByCategory;
       });
     }
+    // if (filterByCategory === "flowerpot") {
+    //   tempProducts = tempProducts.filter((product) => {
+    //     return product.productCategory === filterByCategory;
+    //   });
+    // }
 
     setProducts([...tempProducts]);
   };

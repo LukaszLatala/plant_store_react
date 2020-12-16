@@ -14,9 +14,11 @@ const FilterByCategory = () => {
         onChange={handleFilterByCategory}
         value={filterByCategory}
       >
-        {productsCatgories.map((el) => {
-          return <option value={el}>{el}</option>;
-        })}
+        <option value={productsCatgories.flowerpot && productsCatgories.plant}>
+          all
+        </option>
+        <option value={productsCatgories.plant}>plant</option>
+        <option value={productsCatgories.flowerpot}>flowerpot</option>
       </select>
     </>
   );
