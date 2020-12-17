@@ -8,6 +8,7 @@ const FilterByCategory = () => {
   return (
     <>
       <label htmlFor="categorySelct">Choose category:</label>
+
       <select
         name="categorySelct"
         id="categorySelct"

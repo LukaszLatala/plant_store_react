@@ -2,7 +2,7 @@ import React from "react";
 import "./Contact.css";
 // import Example from "../../components/input/contact_Input";
 import Button from "@material-ui/core/Button";
-import Footer from "../../components/Footer/Footer";
+
 const Contact = () => {
   return (
     <div>

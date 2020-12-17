@@ -8,6 +8,7 @@ const FilterByFreeDelivery = () => {
   return (
     <>
       <label htmlFor="searchByName">Free delivery</label>
+
       <input
         type="checkbox"
         name="searchByName"

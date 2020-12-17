@@ -7,8 +7,9 @@ const FilterByProductName = () => {
 
   return (
     <>
-      <label htmlFor="searchByName">search products by name:</label>
+      <label htmlFor="searchByName">Search products by name:</label>
       <input
+        placeholder="Product name.."
         type="search"
         name="searchByName"
         id="searchByName"

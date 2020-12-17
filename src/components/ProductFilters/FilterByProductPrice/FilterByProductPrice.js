@@ -13,8 +13,9 @@ const FilterByProductPrice = () => {
   return (
     <>
       <label htmlFor="searchByPrice">
-        product price: {filterProductPriceInput}
+        Product price: {filterProductPriceInput}
       </label>
+
       <input
         type="range"
         min={0}
