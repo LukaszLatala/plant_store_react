@@ -4,7 +4,8 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ShopContext from "../../context/context";
-// import Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
 import "./Cart.css";
 import PayPalButton from "../PayPalButton/PayPalButton";
 // import { IconButton } from "@material-ui/core";
@@ -94,7 +95,6 @@ const Cart = () => {
                         <div className="name">
                           <p>{productName}</p>
                         </div>
-
                         <button
                           className="decrease_button"
                           disabled={productQuantity === 1 ? true : false}
@@ -124,25 +124,21 @@ const Cart = () => {
                         >
                           +
                         </button>
-
                         <div className="price_div">
                           <p className="price"> Price: {productPrice} zł</p>
                         </div>
 
-                        {/* <div className="buy_btn">
-                          <button className="buy_btn">Buy</button>
-                        </div> */}
-
-                        <div className="remove_btn">
-                          <button
-                            className="btn_remove"
-                            onClick={() => {
-                              value.removeProductFromCart(productId);
-                            }}
-                          >
-                            Remove
-                          </button>
-                        </div>
+                        <Button
+                          onClick={() => {
+                            value.removeProductFromCart(productId);
+                          }}
+                          variant="contained"
+                          color="default"
+                          className={classes.button}
+                          startIcon={<DeleteIcon />}
+                        >
+                          Remove
+                        </Button>
                       </li>
                     </div>
                   );

@@ -21,7 +21,7 @@
 }
 
 .toolbar_logo h2{
-color: red;
+color: black;
 text-decoration: none;
 align-items: center;
 justify-content: center;
@@ -30,7 +30,7 @@ font-size: 1.5rem;
 
 
 .toolbar_navigation-items ul{
-    color: red;
+    color: black;
     margin: 10px;
     padding: 10px;
     display: flex;
@@ -53,3 +53,12 @@ label{
 .icon{
     padding-left: 5px;
 }
+
+/* input{
+
+    padding: 4px;
+    outline: none;
+
+    font-family: inherit;
+    resize: none;
+} */
