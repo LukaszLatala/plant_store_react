@@ -138,7 +138,7 @@ const Contact = () => {
             className="contact_btn"
             type="submit"
             variant="contained"
-            color="secondary"
+            color="inherit"
           >
             Wyślij
           </Button>

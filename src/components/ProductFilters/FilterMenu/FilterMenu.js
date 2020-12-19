@@ -42,13 +42,6 @@ const FilterMenu = () => {
           </div>
         </nav>
       </header>
-
-      {/* <div>
-        <FilterByProductName className="filterByProductName" />
-        <FilterByProductPrice className="filterByProductPrice" />
-        <FilterByFreeDelivery className="filterByFreeDelivery" />
-        <FilterByCategory className="filterByCategory" />
-      </div> */}
     </>
   );
 };
