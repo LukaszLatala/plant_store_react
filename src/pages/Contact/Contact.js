@@ -3,6 +3,7 @@ import "./Contact.css";
 // import Example from "../../components/input/contact_Input";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Button from "@material-ui/core/Button";
 // const EMAIL_REGEX = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
 // const validate = (values) => {
@@ -40,6 +41,10 @@ const validationSchema = () =>
       .required("Nazwisko jest wymagane!")
       .min(3, "Za krótkie nazwisko, podaj minimum 4 znaki")
       .max(10, "Twoje nazwisko jest zbyt długie"),
+    textarea: Yup.string()
+      .required("Wiadomość nie moze być pusta!")
+      .min(10, "Na pewno nie chcesz nic napisać ?")
+      .max(1000, "Twoja wiadomość  jest zbyt długa"),
   });
 
 const Contact = () => {
@@ -49,6 +54,7 @@ const Contact = () => {
       firstName: "",
       lastName: "",
       age: "",
+      textarea: "",
     },
     validationSchema,
     // validate,
@@ -70,6 +76,7 @@ const Contact = () => {
             <input
               className={formik.errors.firstName ? "has-error" : "false"}
               name="firstName"
+              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               type="text"
               value={formik.values.firstName}
@@ -81,6 +88,7 @@ const Contact = () => {
             <input
               className={formik.errors.lastName ? "has-error" : "false"}
               name="lastName"
+              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               type="text"
               value={formik.values.lastName}
@@ -92,6 +100,7 @@ const Contact = () => {
             <input
               className={formik.errors.email ? "has-error" : "false"}
               name="email"
+              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               required
               value={formik.values.email}
@@ -104,6 +113,7 @@ const Contact = () => {
             <input
               className={formik.errors.age ? "has-error" : "false"}
               name="age"
+              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               required
               value={formik.values.age}
@@ -111,10 +121,27 @@ const Contact = () => {
             ></input>
           </label>
 
-          <button className="contact_btn" type="submit">
-            {" "}
-            Wyślij{" "}
-          </button>
+          <label>
+            Twoja wiadomość:
+            <textarea
+              className={formik.errors.age ? "has-error" : "false"}
+              name="name"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              required
+              value={formik.values.age}
+              type="name"
+            ></textarea>
+          </label>
+
+          <Button
+            className="contact_btn"
+            type="submit"
+            variant="contained"
+            color="secondary"
+          >
+            Wyślij
+          </Button>
         </form>
 
         {errorsElements}
