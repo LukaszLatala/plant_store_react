@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Button from "@material-ui/core/Button";
 
 const validationSchema = Yup.object().shape({
   userName: Yup.string().required("Podaj swój wiek"),
@@ -8,7 +9,7 @@ const validationSchema = Yup.object().shape({
   userEmail: Yup.string()
     .required("Email jest wymagany")
     .email("Niepoprawny adres email"),
-  userMessage: Yup.string().required("Imię jest wymagane!"),
+  userMessage: Yup.string().required("Napisz coś do nas!"),
 });
 
 const Contact2 = () => {
@@ -25,21 +26,31 @@ const Contact2 = () => {
       }}
     >
       {({ values }) => (
-        <Form>
-          <Field name="userName" type="text" placeholder="type your name" />
-          <ErrorMessage name="userName" />
-          <Field name="userEmail" type="text" placeholder="type your email" />
-          <ErrorMessage name="userEmail" />
+        <Form className="container">
+          <div className="contact_input">
+            <Field name="userName" type="text" placeholder="type your name" />
+            <ErrorMessage className="has-error" name="userName" />
+            <Field name="userEmail" type="text" placeholder="type your email" />
+            <ErrorMessage className="has-error" name="userEmail" />
 
-          <Field
-            name="userMessage"
-            type="text"
-            component="textarea"
-            placeholder="type your message"
-          />
-          <ErrorMessage name="userMessage" />
+            <Field
+              className="textarea"
+              name="userMessage"
+              type="text"
+              component="textarea"
+              placeholder="type your message"
+            />
+            <ErrorMessage className="has-error" name="userMessage" />
 
-          <button type="submit">send</button>
+            <Button
+              className="contact_btn"
+              type="submit"
+              variant="contained"
+              color="inherit"
+            >
+              Wyślij
+            </Button>
+          </div>
         </Form>
       )}
     </Formik>

@@ -11,6 +11,7 @@
     font-weight: 200;
     font-size: 28px;
     height: 15vh;
+    min-height: 75px;
     margin-bottom: 20px;
 
 }

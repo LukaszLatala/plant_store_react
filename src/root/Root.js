@@ -14,7 +14,7 @@ import { alertContentAndTypes } from "../utils/alertContentAndTypes";
 import { getCartFromLocalStorage } from "../utils/getElementFromLocalStorage";
 // import { Category } from "@material-ui/icons";
 
-// git commit --amend --reset-author
+// git commit --amend --reset-autand fix hor
 
 const Root = () => {
   // const data = productsData;
@@ -310,7 +310,3 @@ const Root = () => {
 };
 
 export default Root;
-
-// poprawic input na button (nazwy)
-
-// zaimplementować te alerty w projekcie minishop

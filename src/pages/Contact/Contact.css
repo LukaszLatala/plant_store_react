@@ -23,10 +23,11 @@ margin: auto;  display: block; text-align: center;
  
 }
 
-.contact{
+/* .contact{
     align-items: center;
-}
-.contact input{
+} */
+.contact_input  input{
+    align-items: center;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -34,9 +35,14 @@ margin: auto;  display: block; text-align: center;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+
 }
 
-.contact_btn{
+
+.ErrorMessage{
+    color: red;
+}
+.contact_btn{ 
  
         width: 100%;
         background-color: #4CAF50;
@@ -50,7 +56,8 @@ margin: auto;  display: block; text-align: center;
       
 }
 
-.contact textarea{
+
+.textarea{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -59,6 +66,7 @@ margin: auto;  display: block; text-align: center;
     border-radius: 4px;
     box-sizing: border-box;
     height: 100px;
+    resize: none;
 }
 
 
