@@ -7,12 +7,12 @@ const FilterByFreeDelivery = () => {
 
   return (
     <>
-      <label htmlFor="searchByName">Free delivery</label>
+      <label htmlFor="searchByFreeDelivery">Free delivery</label>
 
       <input
         type="checkbox"
-        name="searchByName"
-        id="searchByName"
+        name="searchByFreeDelivery"
+        id="searchByFreeDelivery"
         value={filterByFreeDelivery}
         onChange={handleFreeDeliveryChange}
       />

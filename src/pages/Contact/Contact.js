@@ -124,12 +124,12 @@ const Contact = () => {
           <label>
             Twoja wiadomość:
             <textarea
-              className={formik.errors.age ? "has-error" : "false"}
+              className={formik.errors.textarea ? "has-error" : "false"}
               name="name"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               required
-              value={formik.values.age}
+              value={formik.values.textarea}
               type="name"
             ></textarea>
           </label>

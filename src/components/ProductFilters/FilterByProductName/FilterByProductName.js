@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ShopContext from "../../../context/context";
 import "./FilterByProductName.css";
+
 const FilterByProductName = () => {
   const value = useContext(ShopContext);
   const { searchProductNameInput, handleSearchProductNameInputChange } = value;
