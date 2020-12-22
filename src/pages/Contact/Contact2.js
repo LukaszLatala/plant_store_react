@@ -3,13 +3,23 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Button from "@material-ui/core/Button";
 
+// https://www.youtube.com/watch?v=3sXYK60T6Us
+
 const validationSchema = Yup.object().shape({
-  userName: Yup.string().required("Podaj swój wiek"),
+  userName: Yup.string()
+    .required("Podaj swój wiek")
+    .min(3, "Imię jest zbyt krótkie"),
 
   userEmail: Yup.string()
     .required("Email jest wymagany")
     .email("Niepoprawny adres email"),
   userMessage: Yup.string().required("Napisz coś do nas!"),
+  // acceptedTerms: Yup.boolean()
+  //   .required("Akceptacja warunków wymagana")
+  //   .oneOf([true], "Musisz zaakceptować warunki"),
+  // specialPower: Yup.string().oneOf[
+  //   ["Super", "Bardzo fajna", "Średnio", "Słaba"].required("Wymagane")
+  // ],
 });
 
 const Contact2 = () => {
@@ -20,28 +30,46 @@ const Contact2 = () => {
         userName: "",
         userEmail: "",
         userMessage: "",
+        // acceptedTerms: false,
+        // specialPower: "",
       }}
       onSubmit={(values) => {
-        console.log(values);
+        // console.log(values);
+        alert(JSON.stringify(values));
       }}
     >
       {({ values }) => (
         <Form className="container">
           <div className="contact_input">
-            <Field name="userName" type="text" placeholder="type your name" />
-            <ErrorMessage className="has-error" name="userName" />
-            <Field name="userEmail" type="text" placeholder="type your email" />
-            <ErrorMessage className="has-error" name="userEmail" />
+            <label>
+              {" "}
+              Imię
+              <Field
+                name="userName"
+                type="text"
+                placeholder="Podaj swoje imię "
+              />
+            </label>
+            <label>
+              Email
+              <Field
+                name="userEmail"
+                type="text"
+                placeholder="Podaj swój adres email"
+              />
+            </label>
 
-            <Field
-              className="textarea"
-              name="userMessage"
-              type="text"
-              component="textarea"
-              placeholder="type your message"
-            />
-            <ErrorMessage className="has-error" name="userMessage" />
-
+            <label>
+              {" "}
+              Twoja wiadomość
+              <Field
+                className="textarea"
+                name="userMessage"
+                type="text"
+                component="textarea"
+                placeholder="Napisz do nas wiadomość"
+              />
+            </label>
             <Button
               className="contact_btn"
               type="submit"
@@ -50,6 +78,13 @@ const Contact2 = () => {
             >
               Wyślij
             </Button>
+          </div>
+          <div className="has-error">
+            <ErrorMessage name="userName" /> <br />
+            <ErrorMessage name="userEmail" />
+            <br />
+            <ErrorMessage name="userMessage" />
+            <br />
           </div>
         </Form>
       )}

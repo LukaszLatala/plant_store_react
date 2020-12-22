@@ -1,31 +1,22 @@
-/* .contact textarea{
-    text-align: center;   
-    width:80%;
-    min-height: 200px;
-    margin: 40px 10px;
-    line-height: 1.6;
-    
-}
-.contact_btn{
 
-    margin-left: 100px;
-}
-h3{
-    margin: 10px;
-} */
 .container{
-    border-radius: 5px;
+
+
+border-radius: 5px solid red;
   background-color: #f2f2f2;
   padding-top: 20px;  
   width: 600px;
 
-margin: auto;  display: block; text-align: center;
- 
+margin: auto;
+display: block;
+text-align: center;
+ margin-bottom:  150px;
+}
+label{
+    
+    font-weight:bold;
 }
 
-/* .contact{
-    align-items: center;
-} */
 .contact_input  input{
     align-items: center;
     width: 100%;
@@ -39,16 +30,14 @@ margin: auto;  display: block; text-align: center;
 }
 
 
-.ErrorMessage{
-    color: red;
-}
+
 .contact_btn{ 
  
         width: 100%;
         background-color: #4CAF50;
         color: white;
         padding: 14px 20px;
-        margin: 8px 0;
+        margin: 8px 100px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -73,7 +62,9 @@ margin: auto;  display: block; text-align: center;
 .contact_btn:hover {
     background-color: #45a049;
   }
-.has-error {
-    border: 1px solid red;
+.has-error{
+    margin: 5px;
+    padding: 5;
+    color:  red;
 }
 

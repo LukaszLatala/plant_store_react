@@ -17,7 +17,7 @@ h3 {
     color: #fff;
     font-size: 36px;
     line-height: 100px;
-    margin: 10px;
+    /* margin: 10px; */
     padding: 2%;
     position: relative;
     text-align: center;
@@ -67,7 +67,7 @@ h3 {
     border: 0;
   }
   .slick-slider {
-    margin: 30px auto 50px;
+    margin: 30px auto 10px;
   }
   .slick-dots {
     margin-left: 0;
