@@ -3,6 +3,7 @@ export const alertContentAndTypes = {
     deleteProduct: "Product deleted from cart",
     addProduct: "Product added to cart",
     paymentSucceed: "Payment succeed",
+    emailSend: "Email send!",
   },
   types: {
     success: "success",

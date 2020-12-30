@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
-import Contact2 from "../pages/Contact/Contact2";
 import Home from "../pages/Home/Home";
 import Products from "../pages/Products/Products";
 import { routes } from "../routes/routes";
@@ -290,7 +289,7 @@ const Root = () => {
           productMaxPrice,
           handleFreeDeliveryChange,
           filterByFreeDelivery,
-
+          showAndHideAlert,
           productsCatgories,
           handleFilterByCategory,
         }}
@@ -299,7 +298,7 @@ const Root = () => {
           <Switch>
             <Route exact path={routes.home} component={Home} />
             <Route path={routes.about} component={About} />
-            <Route path={routes.contact} component={Contact2} />
+            <Route path={routes.contact} component={Contact} />
             <Route exact path={routes.products} component={Products} />
             <Route path={routes.single_product} component={SingleProduct} />
           </Switch>

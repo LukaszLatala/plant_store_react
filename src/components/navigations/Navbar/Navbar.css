@@ -1,12 +1,14 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 .navbar{
-    background-color: hsla(64, 100%, 40%, 0.856);
+    /* background-color: hsla(64, 100%, 40%, 0.856); */
+    background: linear-gradient(135deg, #f67280 30%, #f8b195);
     overflow: hidden;
-    color: #eee;
+    color: white;
     /* font-size: large; */
     font-weight: 200;
     font-size: 28px;
@@ -36,3 +38,4 @@
     float: right;
     color: white;
 }
+

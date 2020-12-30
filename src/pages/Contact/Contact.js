@@ -1,153 +1,130 @@
-import React from "react";
-import "./Contact.css";
-// import Example from "../../components/input/contact_Input";
-import { useFormik } from "formik";
+import React, { useState, useContext } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Button from "@material-ui/core/Button";
-// const EMAIL_REGEX = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+import emailjs from "emailjs-com";
+import { alertContentAndTypes } from "../../utils/alertContentAndTypes";
+import ShopContext from "../../context/context";
+import "./Contact.css";
+import { yourServiceId, yourTemplateId, yourUserId } from "../../idKey/idKey";
+// import { Input } from "@material-ui/core";
+// const [checkiFInputIsNotEmpty, setCheckiFInputIsNotEmpty] = useState(false);
 
-// const validate = (values) => {
-//   const errors = {};
-//   if (!values.firstName.length) {
-//     errors.firstName = "Imię jest wymagane!";
-//   } else if (values.firstName.length <= 3) {
-//     errors.firstName = "Za krótkie umię, podaj minimum 4 znaki";
-//   } else if (values.firstName.length > 10) {
-//     errors.firstName = "Twoje imię jest zbyt długie";
-//   }
+const validationSchema = Yup.object().shape({
+  userName: Yup.string()
+    .required("Podaj swój wiek")
+    .min(3, "Imię jest zbyt krótkie"),
 
-//   if (!values.email.length) {
-//     errors.email = "Email jest wymagany";
-//   } else if (!values.email.match(EMAIL_REGEX)) {
-//     errors.email = "Niepoprawny adres email";
-//   }
-//   return errors;
+  userEmail: Yup.string()
+    .required("Email jest wymagany")
+    .email("Niepoprawny adres email"),
+  userMessage: Yup.string().required("Napisz coś do nas!"),
+});
+
+// const handleInputEmpty = () => {
+//   if (
+//     validationSchema.userName ||
+//     validationSchema.userEmail ||
+//     validationSchema.userMessage !== ""
+//       ?   setCheckiFInputIsNotEmpty(false)
+//       :   setCheckiFInputIsNotEmpty(tr);
+//   )
+//   setCheckiFInputIsNotEmpty(false);
 // };
 
-const validationSchema = () =>
-  Yup.object().shape({
-    age: Yup.number()
-      .required("Podaj swój wiek")
-      .min(18, "Musisz być pełnoletni"),
-
-    email: Yup.string()
-      .required("Email jest wymagany")
-      .email("Niepoprawny adres email"),
-    firstName: Yup.string()
-      .required("Imię jest wymagane!")
-      .min(4, "Za krótkie umię, podaj minimum 4 znaki")
-      .max(10, "Twoje imię jest zbyt długie"),
-    lastName: Yup.string()
-      .required("Nazwisko jest wymagane!")
-      .min(3, "Za krótkie nazwisko, podaj minimum 4 znaki")
-      .max(10, "Twoje nazwisko jest zbyt długie"),
-    textarea: Yup.string()
-      .required("Wiadomość nie moze być pusta!")
-      .min(10, "Na pewno nie chcesz nic napisać ?")
-      .max(1000, "Twoja wiadomość  jest zbyt długa"),
-  });
-
 const Contact = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      firstName: "",
-      lastName: "",
-      age: "",
-      textarea: "",
-    },
-    validationSchema,
-    // validate,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values));
-    },
-  });
+  const value = useContext(ShopContext);
 
-  const errorsElements = Object.entries(formik.errors).map(([key, value]) => (
-    <p key={key}>{value}</p>
-  ));
+  const { showAndHideAlert } = value;
+
+  const handleSendEmailForm = (e) => {
+    // if (
+    //   validationSchema.userName ||
+    //   validationSchema.userEmail ||
+    //   validationSchema.userMessage !== ""
+    //     ? setCheckiFInputIsNotEmpty(false)
+    //     : setCheckiFInputIsNotEmpty(true)
+    // )
+    e.preventDefault();
+
+    emailjs
+      .sendForm(yourServiceId, yourTemplateId, e.target, yourUserId)
+      .then((result) => {
+        console.log(result.text);
+        showAndHideAlert(
+          1000,
+          alertContentAndTypes.content.emailSend,
+          alertContentAndTypes.types.success
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
-    <div className="container">
-      <div className="contact">
-        <form onSubmit={formik.handleSubmit}>
-          <label>
-            Imię:
-            <input
-              className={formik.errors.firstName ? "has-error" : "false"}
-              name="firstName"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={{
+        userName: "",
+        userEmail: "",
+        userMessage: "",
+        // acceptedTerms: false,
+        // specialPower: "",
+      }}
+      onSubmit={(values) => {
+        // console.log(values);
+        alert(JSON.stringify(values));
+      }}
+    >
+      {({ values }) => (
+        <Form className="container" onSubmit={handleSendEmailForm}>
+          <div className="contact_input">
+            <label>Imię</label>
+            <Field
+              name="userName"
               type="text"
-              value={formik.values.firstName}
+              placeholder="Podaj swoje imię "
             />
-          </label>
-
-          <label>
-            Nazwisko:
-            <input
-              className={formik.errors.lastName ? "has-error" : "false"}
-              name="lastName"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
+            <label>Email</label>
+            <Field
+              name="userEmail"
               type="text"
-              value={formik.values.lastName}
+              placeholder="Podaj swój adres email"
             />
-          </label>
 
-          <label>
-            Email:
-            <input
-              className={formik.errors.email ? "has-error" : "false"}
-              name="email"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              required
-              value={formik.values.email}
-              type="email"
-            ></input>
-          </label>
-
-          <label>
-            Wiek:
-            <input
-              className={formik.errors.age ? "has-error" : "false"}
-              name="age"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              required
-              value={formik.values.age}
-              type="number"
-            ></input>
-          </label>
-
-          <label>
-            Twoja wiadomość:
-            <textarea
-              className={formik.errors.textarea ? "has-error" : "false"}
-              name="name"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              required
-              value={formik.values.textarea}
-              type="name"
-            ></textarea>
-          </label>
-
-          <Button
-            className="contact_btn"
-            type="submit"
-            variant="contained"
-            color="inherit"
-          >
-            Wyślij
-          </Button>
-        </form>
-
-        {errorsElements}
-      </div>
-    </div>
+            <label> Twoja wiadomość</label>
+            <Field
+              className="textarea"
+              name="userMessage"
+              type="text"
+              component="textarea"
+              placeholder="Napisz do nas wiadomość"
+            />
+            <Button
+              className="contact_btn"
+              type="submit"
+              variant="contained"
+              color="inherit"
+            >
+              Wyślij
+            </Button>
+          </div>
+          <div className="has-error">
+            <ErrorMessage name="userName" /> <br />
+            <ErrorMessage name="userEmail" />
+            <br />
+            <ErrorMessage name="userMessage" />
+            <br />
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
 export default Contact;
+
+// emial js ogarnac
+// alerty
+// hosting
