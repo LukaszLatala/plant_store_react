@@ -7,8 +7,6 @@ import { alertContentAndTypes } from "../../utils/alertContentAndTypes";
 import ShopContext from "../../context/context";
 import "./Contact.css";
 import { yourServiceId, yourTemplateId, yourUserId } from "../../idKey/idKey";
-// import { Input } from "@material-ui/core";
-// const [checkiFInputIsNotEmpty, setCheckiFInputIsNotEmpty] = useState(false);
 
 const validationSchema = Yup.object().shape({
   userName: Yup.string()
@@ -21,30 +19,12 @@ const validationSchema = Yup.object().shape({
   userMessage: Yup.string().required("Napisz coś do nas!"),
 });
 
-// const handleInputEmpty = () => {
-//   if (
-//     validationSchema.userName ||
-//     validationSchema.userEmail ||
-//     validationSchema.userMessage !== ""
-//       ?   setCheckiFInputIsNotEmpty(false)
-//       :   setCheckiFInputIsNotEmpty(tr);
-//   )
-//   setCheckiFInputIsNotEmpty(false);
-// };
-
 const Contact = () => {
   const value = useContext(ShopContext);
 
   const { showAndHideAlert } = value;
 
   const handleSendEmailForm = (e) => {
-    // if (
-    //   validationSchema.userName ||
-    //   validationSchema.userEmail ||
-    //   validationSchema.userMessage !== ""
-    //     ? setCheckiFInputIsNotEmpty(false)
-    //     : setCheckiFInputIsNotEmpty(true)
-    // )
     e.preventDefault();
 
     emailjs
@@ -65,6 +45,7 @@ const Contact = () => {
   return (
     <>
       <h1> Send us a message!</h1>
+
       <Formik
         validationSchema={validationSchema}
         initialValues={{
@@ -80,7 +61,16 @@ const Contact = () => {
         }}
       >
         {({ values }) => (
-          <Form className="container_contact" onSubmit={handleSendEmailForm}>
+          <Form
+            className="container_contact"
+            onSubmit={
+              validationSchema.userName &&
+              validationSchema.userEmail &&
+              validationSchema.userMessage !== ""
+                ? handleSendEmailForm
+                : null
+            }
+          >
             <div className="contact_input">
               <label>Imię</label>
               <Field
