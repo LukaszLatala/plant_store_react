@@ -63,63 +63,66 @@ const Contact = () => {
   };
 
   return (
-    <Formik
-      validationSchema={validationSchema}
-      initialValues={{
-        userName: "",
-        userEmail: "",
-        userMessage: "",
-        // acceptedTerms: false,
-        // specialPower: "",
-      }}
-      onSubmit={(values) => {
-        // console.log(values);
-        alert(JSON.stringify(values));
-      }}
-    >
-      {({ values }) => (
-        <Form className="container" onSubmit={handleSendEmailForm}>
-          <div className="contact_input">
-            <label>Imię</label>
-            <Field
-              name="userName"
-              type="text"
-              placeholder="Podaj swoje imię "
-            />
-            <label>Email</label>
-            <Field
-              name="userEmail"
-              type="text"
-              placeholder="Podaj swój adres email"
-            />
+    <>
+      <h1> Send us a message!</h1>
+      <Formik
+        validationSchema={validationSchema}
+        initialValues={{
+          userName: "",
+          userEmail: "",
+          userMessage: "",
+          // acceptedTerms: false,
+          // specialPower: "",
+        }}
+        onSubmit={(values) => {
+          // console.log(values);
+          alert(JSON.stringify(values));
+        }}
+      >
+        {({ values }) => (
+          <Form className="container_contact" onSubmit={handleSendEmailForm}>
+            <div className="contact_input">
+              <label>Imię</label>
+              <Field
+                name="userName"
+                type="text"
+                placeholder="Podaj swoje imię "
+              />
+              <label>Email</label>
+              <Field
+                name="userEmail"
+                type="text"
+                placeholder="Podaj swój adres email"
+              />
 
-            <label> Twoja wiadomość</label>
-            <Field
-              className="textarea"
-              name="userMessage"
-              type="text"
-              component="textarea"
-              placeholder="Napisz do nas wiadomość"
-            />
-            <Button
-              className="contact_btn"
-              type="submit"
-              variant="contained"
-              color="inherit"
-            >
-              Wyślij
-            </Button>
-          </div>
-          <div className="has-error">
-            <ErrorMessage name="userName" /> <br />
-            <ErrorMessage name="userEmail" />
-            <br />
-            <ErrorMessage name="userMessage" />
-            <br />
-          </div>
-        </Form>
-      )}
-    </Formik>
+              <label> Twoja wiadomość</label>
+              <Field
+                className="textarea"
+                name="userMessage"
+                type="text"
+                component="textarea"
+                placeholder="Napisz do nas wiadomość"
+              />
+              <Button
+                className="contact_btn"
+                type="submit"
+                variant="contained"
+                color="inherit"
+              >
+                Wyślij
+              </Button>
+            </div>
+            <div className="has-error">
+              <ErrorMessage name="userName" /> <br />
+              <ErrorMessage name="userEmail" />
+              <br />
+              <ErrorMessage name="userMessage" />
+              <br />
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 };
 

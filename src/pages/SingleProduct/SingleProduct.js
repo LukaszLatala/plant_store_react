@@ -28,7 +28,7 @@ const SingleProduct = (props) => {
           Return to all products
         </Link>
       </button> */}
-      <div className="box">
+      <div className="box_single_product">
         <p className="single_product_name"> {productName}</p>
         <p> Produkt numer: {productId}</p>
         <p> Koszt: {productPrice} zł</p>

@@ -1,26 +1,22 @@
-
 .container{
-    min-height:100%;
-    position:fixed;
-    bottom: 0;
+  min-height:100%;
+
+  bottom: 0;
 }
 
 footer {
 
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin-bottom:-29px; 
-  }
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin-bottom:-29px; 
+}
 
 
 
-  
-  footer p {
-    text-align:center;
-    color:red;
-  } 
 
-
-
+footer p {
+  text-align:center;
+  color:red;
+} 
 

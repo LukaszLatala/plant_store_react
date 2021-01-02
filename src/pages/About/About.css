@@ -3,6 +3,7 @@ h1{
     color: red;
     margin-bottom: 30px;
 
+
 }
 div img {
         width: 350px;
@@ -10,6 +11,7 @@ div img {
 }
 p{
     text-align: center;
+    margin: 20px 20px;
 }
 
 h3 {
@@ -71,6 +73,7 @@ h3 {
   }
   .slick-dots {
     margin-left: 0;
+    margin-bottom: -50px;
   }
   .slick-thumb {
     bottom: -45px;
@@ -124,4 +127,6 @@ font-size: 32px;
     z-index: 100;
     right: 20px !important;
   } 
- 
+ .about_container{
+   margin-bottom: 120px;
+ }

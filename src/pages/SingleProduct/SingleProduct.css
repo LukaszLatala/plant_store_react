@@ -4,7 +4,13 @@
 
 }
 
-
+.box_single_product{
+    column-count: 2;
+    column-gap: 20px;
+    column-rule:1px solid #D1D1D1;
+    text-align: center;
+    margin-bottom: 150px;
+}
 .single_product_name{
 text-align: center;
 font-size: 40px;
@@ -15,14 +21,7 @@ margin: 20px;
     margin: 10px;
 }
 
-.box{
-    column-count: 2;
-    column-gap: 20px;
-    column-rule:1px solid #D1D1D1;
-    text-align: center;
-}
-
-img{
+.box_single_product img{
     width:400px;
     height: 400px;
 
