@@ -71,7 +71,7 @@ const About = () => {
           consequatur quaerat tempora enim modi quos deserunt sunt est eveniet,
           vero suscipit quidem.
         </p>
-        <div>
+        <div className="about_container">
           <Slider {...settings}>
             {products.map((product) => {
               const { productImage, productName } = product;
