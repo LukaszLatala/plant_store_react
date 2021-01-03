@@ -1,6 +1,6 @@
 import React from "react";
 import PaypalExpressBtn from "react-paypal-express-checkout";
-import { idKey } from "../../idKey/idKey";
+import { idKey } from "../../Keys/Keys";
 
 const PayPalButton = ({ cartTotal, clearAndCloseCart }) => {
   const onSuccessPayment = (payment) => {

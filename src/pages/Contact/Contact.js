@@ -6,7 +6,7 @@ import emailjs from "emailjs-com";
 import { alertContentAndTypes } from "../../utils/alertContentAndTypes";
 import ShopContext from "../../context/context";
 import "./Contact.css";
-import { yourServiceId, yourTemplateId, yourUserId } from "../../idKey/idKey";
+import { yourServiceId, yourTemplateId, yourUserId } from "../../Keys/Keys";
 
 const validationSchema = Yup.object().shape({
   userName: Yup.string()
