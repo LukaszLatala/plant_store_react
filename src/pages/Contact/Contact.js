@@ -24,22 +24,24 @@ const Contact = () => {
 
   const { showAndHideAlert } = value;
 
-  const handleSendEmailForm = (e) => {
+  const handleSendEmailForm = (userName, userEmail, userMessage, e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(yourServiceId, yourTemplateId, e.target, yourUserId)
-      .then((result) => {
-        console.log(result.text);
-        showAndHideAlert(
-          1000,
-          alertContentAndTypes.content.emailSend,
-          alertContentAndTypes.types.success
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (userName !== "" && userEmail !== "" && userMessage !== "") {
+      emailjs
+        .sendForm(yourServiceId, yourTemplateId, e.target, yourUserId)
+        .then((result) => {
+          console.log(result.text);
+          showAndHideAlert(
+            1000,
+            alertContentAndTypes.content.emailSend,
+            alertContentAndTypes.types.success
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -63,12 +65,13 @@ const Contact = () => {
         {({ values }) => (
           <Form
             className="container_contact"
-            onSubmit={
-              validationSchema.userName &&
-              validationSchema.userEmail &&
-              validationSchema.userMessage !== ""
-                ? handleSendEmailForm
-                : null
+            onSubmit={(e) =>
+              handleSendEmailForm(
+                values.userName,
+                values.userEmail,
+                values.userMessage,
+                e
+              )
             }
           >
             <div className="contact_input">

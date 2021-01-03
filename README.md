@@ -1,18 +1,50 @@
 # Plant store project - react
 
+## Overview
+
 Project is still in progress.
 
-Link to deplyed app (netlify)
+### Link to deplyed app (netlify):
+
 https://plant-store-react.netlify.app
 
-Used technologies:
-React
-React Context
-Router
+## Used technologies:
 
-Easy way to install:
-npm install
-npm start
+- React,
+- React Context,
+- React-router-dom,
+- Contentful CMS,
+- Formik, Yup, EmailJs,
+- PayPal Sandbox,
+- Material UI,
+- RWD,
+- React-scroll
+
+## Installing:
+
+First of all clone the repository.
+
+Check if you have node and npm installed by command:
+
+#### node -v
+
+#### npm -v
+
+Then check if you have node_modules in your project, if not then install them by command:
+
+#### npm install
+
+After installation run:
+
+#### npm start
+
+Browser will automatically open on localhost:3000
+
+All of the photos were taken from:
+
+If you have any problems to run the project, feel free to contact me by e-mail:
+
+### lukaszlatalaaa@gmail.com
 
 <!--
 # Getting Started with Create React App
