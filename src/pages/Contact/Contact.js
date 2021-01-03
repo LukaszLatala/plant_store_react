@@ -54,11 +54,8 @@ const Contact = () => {
           userName: "",
           userEmail: "",
           userMessage: "",
-          // acceptedTerms: false,
-          // specialPower: "",
         }}
         onSubmit={(values) => {
-          // console.log(values);
           alert(JSON.stringify(values));
         }}
       >
@@ -120,7 +117,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-// emial js ogarnac
-// alerty
-// hosting
