@@ -7,10 +7,11 @@ import Products from "../pages/Products/Products";
 import { routes } from "../routes/routes";
 import MainTemplate from "../templates/MainTemplate";
 import ShopContext from "../context/context";
-import { productsData } from "../localData/productsData.js";
+// import { productsData } from "../localData/productsData.js";
 import SingleProduct from "../pages/SingleProduct/SingleProduct";
 import { alertContentAndTypes } from "../utils/alertContentAndTypes";
 import { getCartFromLocalStorage } from "../utils/getElementFromLocalStorage";
+import { client } from "../contentful";
 // import { Category } from "@material-ui/icons";
 
 // git commit --amend --reset-autand fix hor
@@ -18,8 +19,8 @@ import { getCartFromLocalStorage } from "../utils/getElementFromLocalStorage";
 const Root = () => {
   // const data = productsData;
 
-  const [initialProducts] = useState([...productsData]);
-  const [products, setProducts] = useState([...productsData]);
+  const [initialProducts, setInitialProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(getCartFromLocalStorage());
 
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -50,7 +51,52 @@ const Root = () => {
   //componentDidUpdate --> czyli wywolanie czegoś ZA KAŻDYM RAZEM kiedy coś innego co monitorujemy się zmieni
   // useEffect(() => {
   //   increaseCounter();
-  // }, [cart]);
+  // }, []);
+
+  const setContentfulData = (data) => {
+    const contentfulProducts = data.map((item) => {
+      const productId = item.sys.id;
+      const formatedProductImage = item.fields.productImage.fields.file.url;
+
+      const product = { productId, ...item.fields };
+      product.productImage = formatedProductImage;
+      console.log(product);
+      return product;
+    });
+
+    const plantArray = contentfulProducts.filter(
+      (item) => item.productCategory === "plant"
+    );
+    const flowerpotArray = contentfulProducts.filter(
+      (item) => item.productCategory === "flowerpot"
+    );
+    const sortedProductsArray = [...plantArray, ...flowerpotArray];
+
+    setInitialProducts([...sortedProductsArray]);
+    setProducts([...sortedProductsArray]);
+
+    const maxPrice = Math.max(
+      ...contentfulProducts.map((product) => product.productPrice)
+    );
+    setProductMaxPrice(maxPrice);
+    setFilterProductPriceInput(maxPrice);
+  };
+
+  const getContentfulData = () => {
+    client
+      .getEntries({
+        content_type: "product",
+      })
+      .then((res) => {
+        console.log(res);
+        setContentfulData(res.items);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getContentfulData();
+  }, []);
 
   const setCartToLocalStorage = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -137,17 +183,17 @@ const Root = () => {
     filterByCategory,
   ]);
 
-  const geProductMaxPrice = () => {
-    const maxPrice = Math.max(
-      ...initialProducts.map((product) => product.productPrice)
-    );
-    setProductMaxPrice(maxPrice);
-    setFilterProductPriceInput(maxPrice);
-  };
+  // const geProductMaxPrice = () => {
+  //   const maxPrice = Math.max(
+  //     ...initialProducts.map((product) => product.productPrice)
+  //   );
+  //   setProductMaxPrice(maxPrice);
+  //   setFilterProductPriceInput(maxPrice);
+  // };
 
-  useEffect(() => {
-    geProductMaxPrice();
-  }, []);
+  // useEffect(() => {
+  //   geProductMaxPrice();
+  // }, []);
 
   // const productMinPrice = Math.min(
   //   ...initialProducts.map((product) => product.productPrice)

@@ -2,7 +2,20 @@
 
 ## Overview
 
-Project is still in progress.
+This project is an app built with "Create React App". Project contains five main sections:
+
+- Home,
+- About,
+- Products,
+- Contact,
+- Cart
+
+To Home Component is added Grid list layout which allows to display a collection of images in an organized grid.
+To About Component is added React Carousel from React Slick. This allows to display all photos from localdata.
+Products Component is a heart of this project. Basically this component is dedicated to display all products. Additionaly it allows user to search product by: price, category, name of the product and possbility to have a free delivery. In addition to that, by clicking in every photo, user can get to the single page of this specific product. User have a possibility to add a products to cart by clicking on "add to cart" button.
+Cart component is available from every place in aplication. User can estimate quantity of products in cart components. There is a possibility to buy product with the paypal button as a sandbox accounts.
+The last component is a contact form which is created in Formik. Form includes three types of validation and allows user to send emails to website owner by emailjs library.
+All project contains alert from materialUi which inform user about: adding product to cart, removing product from cart, making paymants and after sending emails in contact form.
 
 ### Link to deplyed app (netlify):
 
@@ -41,6 +54,7 @@ After installation run:
 Browser will automatically open on localhost:3000
 
 All of the photos were taken from:
+https://lolaflora.pl
 
 If you have any problems to run the project, feel free to contact me by e-mail:
 
