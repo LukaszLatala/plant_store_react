@@ -13,7 +13,7 @@ import { alertContentAndTypes } from "../utils/alertContentAndTypes";
 import { getCartFromLocalStorage } from "../utils/getElementFromLocalStorage";
 import { client } from "../contentful";
 // import { Category } from "@material-ui/icons";
-
+import app from "../App.css";
 // git commit --amend --reset-autand fix hor
 
 const Root = () => {
@@ -60,7 +60,7 @@ const Root = () => {
 
       const product = { productId, ...item.fields };
       product.productImage = formatedProductImage;
-      console.log(product);
+      // console.log(product);
       return product;
     });
 
@@ -126,7 +126,7 @@ const Root = () => {
     ...new Set(products.map((product) => product.productCategory)),
   ];
 
-  console.log(productsCatgories);
+  // console.log(productsCatgories);
 
   const filterProducts = () => {
     let tempProducts = [...initialProducts];

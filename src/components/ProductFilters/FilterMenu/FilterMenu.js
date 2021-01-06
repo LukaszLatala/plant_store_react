@@ -15,11 +15,11 @@ const FilterMenu = () => {
           <div></div>
           <div className="toolbar_logo">
             <h2>
-              Search Product
+              Search Product:
               <FiSearch className="icon" />
             </h2>
           </div>
-          {/* <div className="spacer" /> */}
+
           <div className="toolbar_navigation-items">
             <ul>
               <li>
