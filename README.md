@@ -30,7 +30,7 @@ https://plant-store-react.netlify.app
 - Formik, Yup, EmailJs,
 - PayPal Sandbox,
 - Material UI,
-- RWD,
+- RWD - in progress,
 - React-scroll
 
 ## Installing:
