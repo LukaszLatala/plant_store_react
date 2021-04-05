@@ -8,16 +8,18 @@ const FilterByProductName = () => {
 
   return (
     <>
-      <label htmlFor="searchByName">Search products by name:</label>
-      <input
-        className="filterByProductName"
-        placeholder="Product name.."
-        type="search"
-        name="searchByName"
-        id="searchByName"
-        value={searchProductNameInput}
-        onChange={handleSearchProductNameInputChange}
-      />
+      <div className="FilterByProductName">
+        <label htmlFor="searchByName">Search products by name:</label>
+        <input
+          className="filterByProductName"
+          placeholder="Product name.."
+          type="search"
+          name="searchByName"
+          id="searchByName"
+          value={searchProductNameInput}
+          onChange={handleSearchProductNameInputChange}
+        />
+      </div>
     </>
   );
 };

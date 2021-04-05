@@ -27,7 +27,7 @@ const ProductsList = () => {
                     },
                   }}
                 >
-                  <img src={productImage} alt={productName} />
+                  <img src={productImage} alt={productName} title="click me" />
                 </Link>
 
                 <p className="name">{productName}</p>

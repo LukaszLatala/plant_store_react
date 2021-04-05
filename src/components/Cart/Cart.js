@@ -97,7 +97,7 @@ const Cart = () => {
                         </div>
                         <button
                           className="decrease_button"
-                          disabled={productQuantity === 1 ? true : false}
+                          disabled={productQuantity === 1}
                           onClick={() => {
                             value.decreaseQuantityofProductInCart(productId);
                           }}

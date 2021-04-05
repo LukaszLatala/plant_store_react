@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ShopContext from "../../../context/context";
-
+import "./FilterByCategory.css";
 const FilterByCategory = () => {
   const value = useContext(ShopContext);
   const { productsCatgories, handleFilterByCategory, filterByCategory } = value;

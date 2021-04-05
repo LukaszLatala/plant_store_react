@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import ShopContext from "../../../context/context";
+import "./FilterByFreeDelivery.css";
 
 const FilterByFreeDelivery = () => {
   const value = useContext(ShopContext);

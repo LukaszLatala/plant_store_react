@@ -4,20 +4,23 @@
     font-family: sans-serif;
 }
 
-.navbar{
-    /* background-color: hsla(64, 100%, 40%, 0.856); */
-    background: linear-gradient(135deg, #f67280 30%, #f8b195);
-    overflow: hidden;
-    color: white;
-    /* font-size: large; */
-    font-weight: 200;
-    font-size: 28px;
-    height: 15vh;
-    min-height: 75px;
-    margin-bottom: 20px;
+.navbar__container{
+    display: grid;
 
+   
+    background: linear-gradient(135deg, #f67280 30%, #f8b195);
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    padding: 40px;
+    margin-bottom: 40px;
 }
 
+
+
+/* podzielic to na dwa divy - jeden na lewo drugi na prawo */
+
+    
 .link {
 
     float: left;
@@ -25,17 +28,25 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 28px;
+  font-size: 32px;
 }
+
+
 
 .link:hover{
-    background-color: #ddd;
-    color: black; 
+    position:relative;
+    z-index: 1;
+    color: #91640F;
+    font-weight: bold;
+   
 }
 
-.right{
 
-    float: right;
-    color: white;
-}
 
+@media (max-width: 950px){
+    .navbar > *{
+        display: grid;
+    
+
+    }
+    }

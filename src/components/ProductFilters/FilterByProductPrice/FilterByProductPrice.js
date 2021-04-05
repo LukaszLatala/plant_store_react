@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ShopContext from "../../../context/context";
-
+import "./FilterByProductPrice.css";
 const FilterByProductPrice = () => {
   const value = useContext(ShopContext);
   const {
@@ -12,19 +12,21 @@ const FilterByProductPrice = () => {
 
   return (
     <>
-      <label htmlFor="searchByPrice">
-        Product price: {filterProductPriceInput}
-      </label>
+      <div className="FilterByProductPrice">
+        <label htmlFor="searchByPrice">
+          Product price: {filterProductPriceInput}
+        </label>
 
-      <input
-        type="range"
-        min={0}
-        max={productMaxPrice}
-        name="searchByPrice"
-        id="searchByPrice"
-        value={filterProductPriceInput}
-        onChange={handleProductPriceInputChange}
-      />
+        <input
+          type="range"
+          min={0}
+          max={productMaxPrice}
+          name="searchByPrice"
+          id="searchByPrice"
+          value={filterProductPriceInput}
+          onChange={handleProductPriceInputChange}
+        />
+      </div>
     </>
   );
 };

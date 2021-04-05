@@ -13,27 +13,29 @@ const Navbar = () => {
 
   return (
     <nav>
-      <ul className="navbar">
-        <li>
-          <Link className="link" to={routes.home}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link className="link" to={routes.about}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link className="link" to={routes.products}>
-            Products
-          </Link>
-        </li>
-        <li>
-          <Link className="link" to={routes.contact}>
-            Contact
-          </Link>
-        </li>
+      <ul className="navbar__container">
+        <div className="navbar">
+          <li>
+            <Link className="link" to={routes.home}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="link" to={routes.about}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link className="link" to={routes.products}>
+              Products
+            </Link>
+          </li>
+          <li>
+            <Link className="link" to={routes.contact}>
+              Contact
+            </Link>
+          </li>
+        </div>
         <li className="right">
           <div>
             <IconButton

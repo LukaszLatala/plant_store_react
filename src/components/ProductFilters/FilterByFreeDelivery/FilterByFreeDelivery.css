@@ -1,0 +1,16 @@
+label{
+    padding: 5px;
+}
+
+
+input{
+    border: 1px solid #f8b195;
+}
+input[type="checkbox"] {
+    width: 6mm;
+
+
+    height: 6mm;
+
+
+}

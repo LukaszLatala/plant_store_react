@@ -1,26 +1,39 @@
 body {
     font-family:  sans-serif;
 }
-
 .product_container{
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
+
+grid-template-columns: repeat(3, 1fr);
+grid-gap: 20px;
+
 text-align: center;
 place-items: center;
 margin-top: 20px;
 }
 
-
 ul {
    list-style-type: none;
+
     }
+    
  img{
-width: 300px;
- height: 300px;
+
  margin: 20px;
 
+
+    }
+    
+    .product_container img{
+        width: 400px;
+        height: 400px;
     }
 
+
+    
+.product_container p{
+    font-size: 20px;
+}
 .name {
     margin: 5px;
     font-family: fantasy;
@@ -28,6 +41,20 @@ width: 300px;
     /* border: 1px solid salmon; */
 
 }
-/* button{
-     background: linear-gradient(135deg, #f67280 30%, #f8b195);
-} */
+@media (max-width: 1450px){
+    .product_container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+    }
+
+    @media (max-width: 950px){
+        .product_container{
+            display: grid;
+            grid-template-columns:  1fr;
+            
+        }
+        }
+    
+    
